@@ -1,0 +1,14 @@
+// Colors
+$colors: (
+    primary:    #5b2e90,
+    secondary:  #ffb200,
+    danger:     #bc2c16,
+    light:      #f4f4f4,
+    dark:       #222,
+    success:    #288442,
+    warning:    #cc7500,
+    info:       #31708f
+) !default;
+
+// Overriding Ionic Sass Variables
+$toolbar-background:         #5b2e90 !default;

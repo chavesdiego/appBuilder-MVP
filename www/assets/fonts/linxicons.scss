@@ -1,0 +1,513 @@
+$linxicons-font-path: $font-path !default;
+
+/* Import font icons linx */
+@font-face {
+    font-family: 'linx-icon';
+    src:  url('#{$linxicons-font-path}/linx-icon.eot');
+    src:  url('#{$linxicons-font-path}/linx-icon.eot') format('embedded-opentype'),
+      url('#{$linxicons-font-path}/linx-icon.ttf') format('truetype'),
+      url('#{$linxicons-font-path}/linx-icon.woff') format('woff'),
+      url('#{$linxicons-font-path}/linx-icon.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Import font icons linx food */
+  @font-face {
+    font-family: 'Linx-Food';
+    src:  url('#{$linxicons-font-path}/Linx-Food.eot');
+    src:  url('#{$linxicons-font-path}/Linx-Food.eot') format('embedded-opentype'),
+      url('#{$linxicons-font-path}/Linx-Food.ttf') format('truetype'),
+      url('#{$linxicons-font-path}/Linx-Food.woff') format('woff'),
+      url('#{$linxicons-font-path}/Linx-Food.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Import font icons linx moda */
+  @font-face {
+    font-family: 'Linx-Moda';
+    src:  url('#{$linxicons-font-path}/Linx-Moda.eot');
+    src:  url('#{$linxicons-font-path}/Linx-Moda.eot') format('embedded-opentype'),
+      url('#{$linxicons-font-path}/Linx-Moda.ttf') format('truetype'),
+      url('#{$linxicons-font-path}/Linx-Moda.woff') format('woff'),
+      url('#{$linxicons-font-path}/Linx-Moda.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Generic */
+  .lx {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'linx-icon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    font-size: 2.1em;
+  
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Food */
+  .lx-acompanhamento,
+  .lx-bebidas,
+  .lx-categoria,
+  .lx-combo1,
+  .lx-delivery,
+  .lx-hamburguer,
+  .lx-happyhour,
+  .lx-hotdog,
+  .lx-opcionais,
+  .lx-pizza,
+  .lx-produto,
+  .lx-refil,
+  .lx-soda
+   {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'Linx-Food' !important;
+  }
+  
+  /* Moda */
+  .lx-shorts,
+  .lx-blusa,
+  .lx-bag,
+  .lx-cabide,
+  .lx-paints,
+  .lx-shirt,
+  .lx-tshirt,
+  .lx-gravata,
+  .lx-macacao,
+  .lx-mala,
+  .lx-oculos,
+  .lx-regata,
+  .lx-high-heels,
+  .lx-sapato,
+  .lx-social,
+  .lx-dress {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'Linx-Moda' !important;
+  }
+  
+  /* Generic */
+  .lx-archives:before {
+    content: "\e900";
+  }
+  .lx-arrow-right:before {
+    content: "\e901";
+  }
+  .lx-arrow-right-36:before {
+    content: "\e902";
+  }
+  .lx-attachment:before {
+    content: "\e903";
+  }
+  .lx-barcode:before {
+    content: "\e904";
+  }
+  .lx-bars:before {
+    content: "\e905";
+  }
+  .lx-basket:before {
+    content: "\e906";
+  }
+  .lx-bell:before {
+    content: "\e907";
+  }
+  .lx-block:before {
+    content: "\e908";
+  }
+  .lx-buildings:before {
+    content: "\e909";
+  }
+  .lx-calculator:before {
+    content: "\e90a";
+  }
+  .lx-calendar-chart:before {
+    content: "\e90b";
+  }
+  .lx-calendar-clock:before {
+    content: "\e90c";
+  }
+  .lx-calendar-crosshairs:before {
+    content: "\e90d";
+  }
+  .lx-calendar:before {
+    content: "\e90e";
+  }
+  .lx-cart:before {
+    content: "\e90f";
+  }
+  .lx-cart-full:before {
+    content: "\e910";
+  }
+  .lx-cart-plus:before {
+    content: "\e911";
+  }
+  .lx-cart-receipt:before {
+    content: "\e912";
+  }
+  .lx-cash-register:before {
+    content: "\e913";
+  }
+  .lx-chart:before {
+    content: "\e914";
+  }
+  .lx-check-square:before {
+    content: "\e915";
+  }
+  .lx-check:before {
+    content: "\e916";
+  }
+  .lx-clipboard:before {
+    content: "\e917";
+  }
+  .lx-clock:before {
+    content: "\e918";
+  }
+  .lx-close-square:before {
+    content: "\e919";
+  }
+  .lx-close:before {
+    content: "\e91a";
+  }
+  .lx-clothes-hanger:before {
+    content: "\e91b";
+  }
+  .lx-coin-2:before {
+    content: "\e91c";
+  }
+  .lx-coin-plus:before {
+    content: "\e91d";
+  }
+  .lx-coin-remove:before {
+    content: "\e91e";
+  }
+  .lx-coin-sync:before {
+    content: "\e91f";
+  }
+  .lx-coin:before {
+    content: "\e920";
+  }
+  .lx-contract:before {
+    content: "\e921";
+  }
+  .lx-credit-card:before {
+    content: "\e922";
+  }
+  .lx-dashboard-data:before {
+    content: "\e923";
+  }
+  .lx-dashboard-money:before {
+    content: "\e924";
+  }
+  .lx-dashboard-pharmacy:before {
+    content: "\e925";
+  }
+  .lx-dashboard:before {
+    content: "\e926";
+  }
+  .lx-data-retransmission:before {
+    content: "\e927";
+  }
+  .lx-data-transmission:before {
+    content: "\e928";
+  }
+  .lx-data:before {
+    content: "\e929";
+  }
+  .lx-desktop:before {
+    content: "\e92a";
+  }
+  .lx-document:before {
+    content: "\e92b";
+  }
+  .lx-dollar:before {
+    content: "\e92c";
+  }
+  .lx-download:before {
+    content: "\e92d";
+  }
+  .lx-edit:before {
+    content: "\e92e";
+  }
+  .lx-envelope:before {
+    content: "\e92f";
+  }
+  .lx-eraser:before {
+    content: "\e930";
+  }
+  .lx-exchange:before {
+    content: "\e931";
+  }
+  .lx-file-code:before {
+    content: "\e932";
+  }
+  .lx-file-doc:before {
+    content: "\e933";
+  }
+  .lx-file-pdf:before {
+    content: "\e934";
+  }
+  .lx-file-undo:before {
+    content: "\e935";
+  }
+  .lx-file-xls:before {
+    content: "\e936";
+  }
+  .lx-files:before {
+    content: "\e937";
+  }
+  .lx-filter:before {
+    content: "\e938";
+  }
+  .lx-image:before {
+    content: "\e939";
+  }
+  .lx-inbox:before {
+    content: "\e93a";
+  }
+  .lx-info:before {
+    content: "\e93b";
+  }
+  .lx-invoice:before {
+    content: "\e93c";
+  }
+  .lx-key:before {
+    content: "\e93d";
+  }
+  .lx-keyboard:before {
+    content: "\e93e";
+  }
+  .lx-lightbulb:before {
+    content: "\e93f";
+  }
+  .lx-logout:before {
+    content: "\e940";
+  }
+  .lx-map:before {
+    content: "\e941";
+  }
+  .lx-money:before {
+    content: "\e942";
+  }
+  .lx-mortar-board:before {
+    content: "\e943";
+  }
+  .lx-new:before {
+    content: "\e944";
+  }
+  .lx-payments:before {
+    content: "\e945";
+  }
+  .lx-phone:before {
+    content: "\e946";
+  }
+  .lx-plus:before {
+    content: "\e947";
+  }
+  .lx-print:before {
+    content: "\e948";
+  }
+  .lx-question:before {
+    content: "\e949";
+  }
+  .lx-receipt:before {
+    content: "\e94a";
+  }
+  .lx-refresh:before {
+    content: "\e957";
+  }
+  .lx-remove-circle:before {
+    content: "\e958";
+  }
+  .lx-remove:before {
+    content: "\e959";
+  }
+  .lx-report:before {
+    content: "\e95a";
+  }
+  .lx-save:before {
+    content: "\e95b";
+  }
+  .lx-search-plus:before {
+    content: "\e95c";
+  }
+  .lx-search:before {
+    content: "\e95d";
+  }
+  .lx-shopping-bag-check:before {
+    content: "\e95e";
+  }
+  .lx-shopping-bag-remove:before {
+    content: "\e95f";
+  }
+  .lx-shopping-bag:before {
+    content: "\e960";
+  }
+  .lx-shuffle:before {
+    content: "\e961";
+  }
+  .lx-star:before {
+    content: "\e962";
+  }
+  .lx-store:before {
+    content: "\e963";
+  }
+  .lx-chat:before {
+    content: "\e964";
+  }
+  .lx-support:before {
+    content: "\e965";
+  }
+  .lx-timer:before {
+    content: "\e966";
+  }
+  .lx-trash:before {
+    content: "\e967";
+  }
+  .lx-upload:before {
+    content: "\e968";
+  }
+  .lx-user-down:before {
+    content: "\e969";
+  }
+  .lx-user-sync:before {
+    content: "\e96a";
+  }
+  .lx-user:before {
+    content: "\e96b";
+  }
+  .lx-window-maximize:before {
+    content: "\e96c";
+  }
+  .lx-window-minimize:before {
+    content: "\e96d";
+  }
+  .lx-wrench:before {
+    content: "\e96e";
+  }
+  /* / Generic */
+  
+  /* Linx-Food */
+  .lx-acompanhamento:before {
+    content: "\e900";
+  }
+  
+  .lx-bebidas:before {
+    content: "\e901";
+  }
+  
+  .lx-categoria:before {
+    content: "\e902";
+  }
+  
+  .lx-combo1:before {
+    content: "\e903";
+  }
+  
+  .lx-delivery:before {
+    content: "\e910";
+  }
+  .lx-hamburguer:before {
+    content: "\e911";
+  }
+  .lx-happyhour:before {
+    content: "\e912";
+  }
+  .lx-hotdog:before {
+    content: "\e913";
+  }
+  
+  .lx-opcionais:before {
+    content: "\e91c";
+  }
+  
+  .lx-pizza:before {
+    content: "\e91d";
+  }
+  
+  .lx-produto:before {
+    content: "\e91e";
+  }
+  
+  .lx-refil:before {
+    content: "\e91f";
+  }
+  
+  .lx-soda:before {
+    content: "\e920";
+  }
+  /* / Linx-Food */
+  
+  /* Linx Moda */
+  .lx-shorts:before {
+    content: "\e900";
+  }
+  
+  .lx-blusa:before {
+    content: "\e901";
+  }
+  
+  .lx-bag:before {
+    content: "\e902";
+  }
+  
+  .lx-cabide:before {
+    content: "\e903";
+  }
+  
+  .lx-paints:before {
+    content: "\e904";
+  }
+  
+  .lx-tshirt:before {
+    content: "\e905";
+  }
+  
+  .lx-shirt:before {
+    content: "\e906";
+  }
+  
+  .lx-gravata:before {
+    content: "\e907";
+  }
+  
+  .lx-macacao:before {
+    content: "\e908";
+  }
+  
+  .lx-mala:before {
+    content: "\e909";
+  }
+  
+  .lx-oculos:before {
+    content: "\e90a";
+  }
+  
+  .lx-regata:before {
+    content: "\e90b";
+  }
+  
+  .lx-high-heels:before {
+    content: "\e90c";
+  }
+  
+  .lx-sapato:before {
+    content: "\e90d";
+  }
+  
+  .lx-social:before {
+    content: "\e90e";
+  }
+  
+  .lx-dress:before,
+  [name="lx-dress"]:before {
+    content: "\e90f";
+  }
+
+  /* / Linx Moda */

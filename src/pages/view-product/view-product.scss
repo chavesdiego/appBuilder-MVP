@@ -1,0 +1,14 @@
+page-view-product {
+    
+    .loading {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        z-index: 10000000;
+        text-align: center;
+        line-height: 100vh;
+        background: #fff;
+    }
+}
