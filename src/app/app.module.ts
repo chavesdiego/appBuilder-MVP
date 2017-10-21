@@ -7,6 +7,7 @@ import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { ViewProductPage } from '../pages/view-product/view-product';
+import {CartPage} from '../pages/cart/cart'
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,7 +19,8 @@ import { ProductProvider } from '../providers/product/product';
     MyApp,
     LoginPage,
     HomePage,
-    ViewProductPage    
+    ViewProductPage,
+    CartPage    
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { ProductProvider } from '../providers/product/product';
     MyApp,
     LoginPage,
     HomePage,
-    ViewProductPage
+    ViewProductPage,
+    CartPage
   ],
   providers: [
     StatusBar,

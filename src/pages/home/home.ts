@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angu
 import { ProductProvider } from '../../providers/product/product'
 
 import { ViewProductPage } from '../view-product/view-product'
+import {CartPage} from '../cart/cart'
 
 @IonicPage()
 
@@ -52,6 +53,10 @@ export class HomePage {
 
   viewProduct(id) {
     this.modalCtrl.create(ViewProductPage, { productId: id }).present()
+  }
+
+    goToCartPage() {
+    this.navCtrl.setRoot(CartPage);
   }
 
   ionViewDidLoad() {
