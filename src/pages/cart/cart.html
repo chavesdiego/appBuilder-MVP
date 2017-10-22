@@ -5,14 +5,37 @@
   Ionic pages and navigation.
 -->
 <ion-header>
+  <ion-toolbar color="light">
 
-  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only color="primary" (click)="goToHomePage()">
+                <ion-icon name="home" ></ion-icon>
+            </button>
+    </ion-buttons>
+
+
     <ion-title>CAAART</ion-title>
-  </ion-navbar>
 
+  </ion-toolbar>
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-card>
+
+    <ion-item>
+
+      <ion-avatar item-start>
+        <!--<img [src]="'http://45.55.238.48:8000/img/' + item.imagePath" />-->
+        <p>
+          {{items}}
+        </p>
+
+      </ion-avatar>
+
+    </ion-item>
+
+  </ion-card>
 
 </ion-content>

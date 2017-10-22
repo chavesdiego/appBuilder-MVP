@@ -13,6 +13,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ProductProvider } from '../providers/product/product';
+import { CartProvider } from '../providers/cart/cart';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ProductProvider } from '../providers/product/product';
     StatusBar,
     SplashScreen,
     ProductProvider,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    CartProvider
   ]
 })
 export class AppModule {}
