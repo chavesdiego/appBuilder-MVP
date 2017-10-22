@@ -22,14 +22,24 @@ export class CartPage {
   }
 
   ngOnInit() {
-
     return this.cartService.getItems()
       .then(item => this.items = item)
+  }
 
+  removeItem(item) {
+    this.cartService.deleteItem(item._id)
+      .then(this.items.splice(item, 1))
+
+  }
+
+  cleanCart() {
+    this.items.map(item => this.cartService.deleteItem(item._id))
+    this.items = []
   }
 
   goToHomePage() {
     this.navCtrl.setRoot(HomePage);
   }
+
 
 }

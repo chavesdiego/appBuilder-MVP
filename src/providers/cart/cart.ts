@@ -28,6 +28,15 @@ export class CartProvider {
     })
   }
 
+  deleteItem(id) {
+    return new Promise(resolve => {
+
+      this.http.delete(`${apiUrl}/carts/${id}`)
+        .map(res => res.json())
+        .subscribe(data => resolve(data))
+    })
+  }
+
 
 
 

@@ -10,9 +10,10 @@
 
 <ion-content padding>
 
-    <div *ngIf="product" (click)="addToCart(product)">
+    <div *ngIf="product">
         {{product.name}}
         <img [src]="'http://45.55.238.48:8000/img/' + product.imagePath" />
+        <button ion-button full color="primary" (click)="addToCart(product)"> add to cart </button>
     </div>
     <div *ngIf="!product" class="loading">
         <ion-spinner name="crescent"></ion-spinner>

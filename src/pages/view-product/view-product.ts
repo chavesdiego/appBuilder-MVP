@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { ProductProvider } from '../../providers/product/product'
+import { ProductProvider } from '../../providers/product/product';
+import { CartProvider } from '../../providers/cart/cart'
 import { Events } from 'ionic-angular';
 
 /**
@@ -20,13 +21,22 @@ export class ViewProductPage {
   public product: any;
   public productId: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, 
-              private productService: ProductProvider,  public events: Events) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private productService: ProductProvider, private cartService: CartProvider, public events: Events) {
     this.productId = navParams.get('productId');
   }
 
   addToCart(product) {
-    this.events.publish('cart:add', product, 1);
+    let item = {
+      "name": product.name,
+      "imagePath": product.imagePath,
+      "price": product.price,
+      "productId": product._id
+    }
+    console.log(item)
+    this.cartService.addItem(item)
+
+    //this.events.publish('cart:add', product, 1);
   }
 
   ionViewDidLoad() {

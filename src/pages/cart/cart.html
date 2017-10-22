@@ -22,20 +22,52 @@
 
 <ion-content padding>
 
-  <ion-card *ngFor="let item of items">
 
-    <ion-item>
+  <!--<ion-card *ngFor="let item of items">
 
-      <ion-avatar item-start>
-        <img [src]="'http://45.55.238.48:8000/img/' + item.imagePath" />
-        <p>
-          {{item.name}}
-        </p>
+      <ion-item>
 
-      </ion-avatar>
+        <ion-avatar item-start>
+          <img [src]="'http://45.55.238.48:8000/img/' + item.imagePath" />
+          <p>
+            {{item.name}}
+          </p>
 
-    </ion-item>
+        </ion-avatar>
 
-  </ion-card>
+      </ion-item>
+
+    </ion-card>
+
+    <ion-item-options side="left">
+      <button ion-button color="danger" (click)="share(item)">Delete</button>
+    </ion-item-options>-->
+
+
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items">
+
+      <ion-item>
+        <ion-avatar item-start>
+          <img [src]="'http://45.55.238.48:8000/img/' + item.imagePath" />
+          <p>
+            {{item.name}}
+          </p>
+        </ion-avatar>
+
+      </ion-item>
+
+      <ion-item-options side="right">>
+        <button ion-button color="danger" (click)="removeItem(item)">Delete</button>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+
+  <button ion-button full color="danger" (click)="cleanCart(product)"> Limpar Carrinho </button>
+  <button ion-button full color="primary" (click)="goToHomePage()"> Finalizar Compra </button>
+
+
 
 </ion-content>

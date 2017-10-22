@@ -8,6 +8,7 @@ webpackJsonp([4],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(20);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_product_product__ = __webpack_require__(78);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_cart_cart__ = __webpack_require__(156);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -21,6 +22,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the ViewProductPage page.
  *
@@ -28,15 +30,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var ViewProductPage = (function () {
-    function ViewProductPage(navCtrl, navParams, productService, events) {
+    function ViewProductPage(navCtrl, navParams, productService, cartService, events) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.productService = productService;
+        this.cartService = cartService;
         this.events = events;
         this.productId = navParams.get('productId');
     }
     ViewProductPage.prototype.addToCart = function (product) {
-        this.events.publish('cart:add', product, 1);
+        var item = {
+            "name": product.name,
+            "imagePath": product.imagePath,
+            "price": product.price,
+            "productId": product._id
+        };
+        console.log(item);
+        this.cartService.addItem(item);
+        //this.events.publish('cart:add', product, 1);
     };
     ViewProductPage.prototype.ionViewDidLoad = function () {
         var _this = this;
@@ -48,12 +59,12 @@ var ViewProductPage = (function () {
 ViewProductPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-view-product',template:/*ion-inline-start:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/pages/view-product/view-product.html"*/'<!--\n  Generated template for the ViewProductPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header color="light">\n    <ion-navbar color="light"></ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n    <div *ngIf="product" (click)="addToCart(product)">\n        {{product.name}}\n        <img [src]="\'http://45.55.238.48:8000/img/\' + product.imagePath" />\n    </div>\n    <div *ngIf="!product" class="loading">\n        <ion-spinner name="crescent"></ion-spinner>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/pages/view-product/view-product.html"*/
+        selector: 'page-view-product',template:/*ion-inline-start:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/pages/view-product/view-product.html"*/'<!--\n  Generated template for the ViewProductPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header color="light">\n    <ion-navbar color="light"></ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n    <div *ngIf="product">\n        {{product.name}}\n        <img [src]="\'http://45.55.238.48:8000/img/\' + product.imagePath" />\n        <button ion-button full color="primary" (click)="addToCart(product)"> add to cart </button>\n    </div>\n    <div *ngIf="!product" class="loading">\n        <ion-spinner name="crescent"></ion-spinner>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/pages/view-product/view-product.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
-        __WEBPACK_IMPORTED_MODULE_2__providers_product_product__["a" /* ProductProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Events */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_product_product__["a" /* ProductProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_product_product__["a" /* ProductProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_cart_cart__["a" /* CartProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_cart_cart__["a" /* CartProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Events */]) === "function" && _e || Object])
 ], ViewProductPage);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=view-product.js.map
 
 /***/ }),
@@ -95,6 +106,15 @@ var CartPage = (function () {
         return this.cartService.getItems()
             .then(function (item) { return _this.items = item; });
     };
+    CartPage.prototype.removeItem = function (item) {
+        this.cartService.deleteItem(item._id)
+            .then(this.items.splice(item, 1));
+    };
+    CartPage.prototype.cleanCart = function () {
+        var _this = this;
+        this.items.map(function (item) { return _this.cartService.deleteItem(item._id); });
+        this.items = [];
+    };
     CartPage.prototype.goToHomePage = function () {
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__home_home__["a" /* HomePage */]);
     };
@@ -103,7 +123,7 @@ var CartPage = (function () {
 CartPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-cart',template:/*ion-inline-start:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/pages/cart/cart.html"*/'<!--\n  Generated template for the CartPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-toolbar color="light">\n\n    <ion-buttons start>\n      <button ion-button icon-only color="primary" (click)="goToHomePage()">\n                <ion-icon name="home" ></ion-icon>\n            </button>\n    </ion-buttons>\n\n\n    <ion-title>CAAART</ion-title>\n\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content padding>\n\n  <ion-card *ngFor="let item of items">\n\n    <ion-item>\n\n      <ion-avatar item-start>\n        <img [src]="\'http://45.55.238.48:8000/img/\' + item.imagePath" />\n        <p>\n          {{item.name}}\n        </p>\n\n      </ion-avatar>\n\n    </ion-item>\n\n  </ion-card>\n\n</ion-content>'/*ion-inline-end:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/pages/cart/cart.html"*/,
+        selector: 'page-cart',template:/*ion-inline-start:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/pages/cart/cart.html"*/'<!--\n  Generated template for the CartPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-toolbar color="light">\n\n    <ion-buttons start>\n      <button ion-button icon-only color="primary" (click)="goToHomePage()">\n                <ion-icon name="home" ></ion-icon>\n            </button>\n    </ion-buttons>\n\n\n    <ion-title>CAAART</ion-title>\n\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content padding>\n\n\n  <!--<ion-card *ngFor="let item of items">\n\n      <ion-item>\n\n        <ion-avatar item-start>\n          <img [src]="\'http://45.55.238.48:8000/img/\' + item.imagePath" />\n          <p>\n            {{item.name}}\n          </p>\n\n        </ion-avatar>\n\n      </ion-item>\n\n    </ion-card>\n\n    <ion-item-options side="left">\n      <button ion-button color="danger" (click)="share(item)">Delete</button>\n    </ion-item-options>-->\n\n\n  <ion-list>\n    <ion-item-sliding *ngFor="let item of items">\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img [src]="\'http://45.55.238.48:8000/img/\' + item.imagePath" />\n          <p>\n            {{item.name}}\n          </p>\n        </ion-avatar>\n\n      </ion-item>\n\n      <ion-item-options side="right">>\n        <button ion-button color="danger" (click)="removeItem(item)">Delete</button>\n      </ion-item-options>\n\n    </ion-item-sliding>\n  </ion-list>\n\n\n  <button ion-button full color="danger" (click)="cleanCart(product)"> Limpar Carrinho </button>\n  <button ion-button full color="primary" (click)="goToHomePage()"> Finalizar Compra </button>\n\n\n\n</ion-content>'/*ion-inline-end:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/pages/cart/cart.html"*/,
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_cart_cart__["a" /* CartProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_cart_cart__["a" /* CartProvider */]) === "function" && _c || Object])
 ], CartPage);
@@ -256,6 +276,14 @@ var CartProvider = (function () {
         var _this = this;
         return new Promise(function (resolve) {
             _this.http.post(apiUrl + "/carts", item)
+                .map(function (res) { return res.json(); })
+                .subscribe(function (data) { return resolve(data); });
+        });
+    };
+    CartProvider.prototype.deleteItem = function (id) {
+        var _this = this;
+        return new Promise(function (resolve) {
+            _this.http.delete(apiUrl + "/carts/" + id)
                 .map(function (res) { return res.json(); })
                 .subscribe(function (data) { return resolve(data); });
         });
