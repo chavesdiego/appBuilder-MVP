@@ -5,12 +5,6 @@ import { CartProvider } from '../../providers/cart/cart'
 
 import { HomePage } from '../home/home'
 
-/**
- * Generated class for the CartPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -27,9 +21,11 @@ export class CartPage {
     console.log('ionViewDidLoad CartPage');
   }
 
-  getItems() {
-    return this.cartService.items()
-    .then(item => this.items = item)
+  ngOnInit() {
+
+    return this.cartService.getItems()
+      .then(item => this.items = item)
+
   }
 
   goToHomePage() {

@@ -22,14 +22,14 @@
 
 <ion-content padding>
 
-  <ion-card>
+  <ion-card *ngFor="let item of items">
 
     <ion-item>
 
       <ion-avatar item-start>
-        <!--<img [src]="'http://45.55.238.48:8000/img/' + item.imagePath" />-->
+        <img [src]="'http://45.55.238.48:8000/img/' + item.imagePath" />
         <p>
-          {{items}}
+          {{item.name}}
         </p>
 
       </ion-avatar>
