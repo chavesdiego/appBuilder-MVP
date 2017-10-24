@@ -603,6 +603,10 @@
 }
 
 /* / Linx Moda */
+.product-name {
+  color: #5B2E90;
+}
+
 .ion-ios-add:before {
   content: "\f102";
 }
@@ -23477,7 +23481,7 @@ ion-toast {
   display: block;
   width: 100%;
   max-width: 700px;
-  background: #333;
+  background: #5b2e90;
 }
 
 .toast-md .toast-wrapper.toast-top {
@@ -23511,7 +23515,7 @@ ion-toast {
   z-index: 10;
   display: block;
   max-width: 700px;
-  background: black;
+  background: #5b2e90;
 }
 
 .toast-wp .toast-wrapper.toast-top {
