@@ -23,7 +23,7 @@ export class CartPage {
 
   ngOnInit() {
     return this.cartService.getItems()
-      .then(item => this.items = item)
+      .subscribe(item => this.items = item)
   }
 
   removeItem(item) {

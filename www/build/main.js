@@ -59,7 +59,7 @@ var ViewProductPage = (function () {
 ViewProductPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-view-product',template:/*ion-inline-start:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/pages/view-product/view-product.html"*/'<!--\n  Generated template for the ViewProductPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header color="light">\n    <ion-navbar color="light"></ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n    <div *ngIf="product">\n        {{product.name}}\n        <img [src]="\'http://45.55.238.48:8000/img/\' + product.imagePath" />\n        <button ion-button full color="primary" (click)="addToCart(product)"> add to cart </button>\n    </div>\n    <div *ngIf="!product" class="loading">\n        <ion-spinner name="crescent"></ion-spinner>\n    </div>\n</ion-content>'/*ion-inline-end:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/pages/view-product/view-product.html"*/
+        selector: 'page-view-product',template:/*ion-inline-start:"C:\Users\denil\projects\appBuilder-MVP\src\pages\view-product\view-product.html"*/'<!--\n\n  Generated template for the ViewProductPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header color="light">\n\n    <ion-navbar color="light"></ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n    <div *ngIf="product">\n\n        {{product.name}}\n\n        <img [src]="\'http://45.55.238.48:8000/img/\' + product.imagePath" />\n\n        <button ion-button full color="primary" (click)="addToCart(product)"> add to cart </button>\n\n    </div>\n\n    <div *ngIf="!product" class="loading">\n\n        <ion-spinner name="crescent"></ion-spinner>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"C:\Users\denil\projects\appBuilder-MVP\src\pages\view-product\view-product.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
         __WEBPACK_IMPORTED_MODULE_2__providers_product_product__["a" /* ProductProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_cart_cart__["a" /* CartProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Events */]])
@@ -104,7 +104,7 @@ var CartPage = (function () {
     CartPage.prototype.ngOnInit = function () {
         var _this = this;
         return this.cartService.getItems()
-            .then(function (item) { return _this.items = item; });
+            .subscribe(function (item) { return _this.items = item; });
     };
     CartPage.prototype.removeItem = function (item) {
         this.cartService.deleteItem(item._id)
@@ -123,11 +123,12 @@ var CartPage = (function () {
 CartPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-cart',template:/*ion-inline-start:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/pages/cart/cart.html"*/'<!--\n  Generated template for the CartPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-toolbar color="light">\n\n    <ion-buttons start>\n      <button ion-button icon-only color="primary" (click)="goToHomePage()">\n                <ion-icon name="home" ></ion-icon>\n            </button>\n    </ion-buttons>\n\n\n    <ion-title>CAAART</ion-title>\n\n  </ion-toolbar>\n</ion-header>\n\n\n<ion-content padding>\n\n\n  <!--<ion-card *ngFor="let item of items">\n\n      <ion-item>\n\n        <ion-avatar item-start>\n          <img [src]="\'http://45.55.238.48:8000/img/\' + item.imagePath" />\n          <p>\n            {{item.name}}\n          </p>\n\n        </ion-avatar>\n\n      </ion-item>\n\n    </ion-card>\n\n    <ion-item-options side="left">\n      <button ion-button color="danger" (click)="share(item)">Delete</button>\n    </ion-item-options>-->\n\n\n  <ion-list>\n    <ion-item-sliding *ngFor="let item of items">\n\n      <ion-item>\n        <ion-avatar item-start>\n          <img [src]="\'http://45.55.238.48:8000/img/\' + item.imagePath" />\n          <p>\n            {{item.name}}\n          </p>\n        </ion-avatar>\n\n      </ion-item>\n\n      <ion-item-options side="right">>\n        <button ion-button color="danger" (click)="removeItem(item)">Delete</button>\n      </ion-item-options>\n\n    </ion-item-sliding>\n  </ion-list>\n\n\n  <button ion-button full color="danger" (click)="cleanCart(product)"> Limpar Carrinho </button>\n  <button ion-button full color="primary" (click)="goToHomePage()"> Finalizar Compra </button>\n\n\n\n</ion-content>'/*ion-inline-end:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/pages/cart/cart.html"*/,
+        selector: 'page-cart',template:/*ion-inline-start:"C:\Users\denil\projects\appBuilder-MVP\src\pages\cart\cart.html"*/'<!--\n\n  Generated template for the CartPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n  <ion-toolbar color="light">\n\n\n\n    <ion-buttons start>\n\n      <button ion-button icon-only color="primary" (click)="goToHomePage()">\n\n                <ion-icon name="home" ></ion-icon>\n\n            </button>\n\n    </ion-buttons>\n\n\n\n\n\n    <ion-title>CAAART</ion-title>\n\n\n\n  </ion-toolbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n\n\n  <!--<ion-card *ngFor="let item of items">\n\n\n\n      <ion-item>\n\n\n\n        <ion-avatar item-start>\n\n          <img [src]="\'http://45.55.238.48:8000/img/\' + item.imagePath" />\n\n          <p>\n\n            {{item.name}}\n\n          </p>\n\n\n\n        </ion-avatar>\n\n\n\n      </ion-item>\n\n\n\n    </ion-card>\n\n\n\n    <ion-item-options side="left">\n\n      <button ion-button color="danger" (click)="share(item)">Delete</button>\n\n    </ion-item-options>-->\n\n\n\n\n\n  <ion-list>\n\n    <ion-item-sliding *ngFor="let item of items">\n\n\n\n      <ion-item>\n\n        <ion-avatar item-start>\n\n          <img [src]="\'http://45.55.238.48:8000/img/\' + item.imagePath" />\n\n          <p>\n\n            {{item.name}}\n\n          </p>\n\n        </ion-avatar>\n\n\n\n      </ion-item>\n\n\n\n      <ion-item-options side="right">>\n\n        <button ion-button color="danger" (click)="removeItem(item)">Delete</button>\n\n      </ion-item-options>\n\n\n\n    </ion-item-sliding>\n\n  </ion-list>\n\n\n\n\n\n  <button ion-button full color="danger" (click)="cleanCart(product)"> Limpar Carrinho </button>\n\n  <button ion-button full color="primary" (click)="goToHomePage()"> Finalizar Compra </button>\n\n\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\denil\projects\appBuilder-MVP\src\pages\cart\cart.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_cart_cart__["a" /* CartProvider */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_cart_cart__["a" /* CartProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_cart_cart__["a" /* CartProvider */]) === "function" && _c || Object])
 ], CartPage);
 
+var _a, _b, _c;
 //# sourceMappingURL=cart.js.map
 
 /***/ }),
@@ -174,7 +175,7 @@ var LoginPage = (function () {
 LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-content>\n    <ion-slides pager autoplay="5000">\n        <ion-slide style="background-color: green"></ion-slide>\n        <ion-slide style="background-color: blue"></ion-slide>\n        <ion-slide style="background-color: red"></ion-slide>\n    </ion-slides>\n\n    <div class="login" padding>\n        <ion-list>\n            <ion-item>\n                <ion-input type="text" value="" placeholder="Usuário"></ion-input>\n            </ion-item>\n\n            <ion-item>\n                <ion-input type="password" placeholder="Senha"></ion-input>\n            </ion-item>\n        </ion-list>\n\n        <button ion-button full color="primary" (click)="goToHomePage()">Login</button>\n        <span class="separator">ou</span>\n        <button ion-button full color="info">Facebook</button>\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/pages/login/login.html"*/,
+        selector: 'page-login',template:/*ion-inline-start:"C:\Users\denil\projects\appBuilder-MVP\src\pages\login\login.html"*/'<!--\n\n  Generated template for the LoginPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-content>\n\n    <ion-slides pager autoplay="5000">\n\n        <ion-slide style="background-color: green"></ion-slide>\n\n        <ion-slide style="background-color: blue"></ion-slide>\n\n        <ion-slide style="background-color: red"></ion-slide>\n\n    </ion-slides>\n\n\n\n    <div class="login" padding>\n\n        <ion-list>\n\n            <ion-item>\n\n                <ion-input type="text" value="" placeholder="Usuário"></ion-input>\n\n            </ion-item>\n\n\n\n            <ion-item>\n\n                <ion-input type="password" placeholder="Senha"></ion-input>\n\n            </ion-item>\n\n        </ion-list>\n\n\n\n        <button ion-button full color="primary" (click)="goToHomePage()">Login</button>\n\n        <span class="separator">ou</span>\n\n        <button ion-button full color="info">Facebook</button>\n\n    </div>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\denil\projects\appBuilder-MVP\src\pages\login\login.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
 ], LoginPage);
@@ -386,7 +387,7 @@ var MyApp = (function () {
     return MyApp;
 }());
 MyApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/app/app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"C:\Users\denil\projects\appBuilder-MVP\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"C:\Users\denil\projects\appBuilder-MVP\src\app\app.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Events */]])
 ], MyApp);
@@ -463,7 +464,7 @@ var HomePage = (function () {
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/pages/home/home.html"*/'<ion-header>\n    <ion-toolbar color="light">\n\n        <ion-buttons start>\n            <button ion-button icon-only color="primary">\n                <ion-icon name="menu"></ion-icon>\n            </button>\n        </ion-buttons>\n\n        <ion-title>Linx Moda Shop</ion-title>\n\n        <ion-buttons end>\n            <button ion-button icon-only color="primary" (click)="goToCartPage()">\n                <ion-icon class="lx lx-basket"></ion-icon>\n                <ion-badge id="notifications-badge" color="danger">5</ion-badge>\n            </button>\n        </ion-buttons>\n\n    </ion-toolbar>\n</ion-header>\n\n<ion-content>\n\n    <ion-slides autoplay="5000" class="banners" style="height: 30vh;">\n        <ion-slide style="background-color: green"></ion-slide>\n        <ion-slide style="background-color: blue"></ion-slide>\n        <ion-slide style="background-color: red"></ion-slide>\n    </ion-slides>\n\n    <div *ngFor="let category of categories">\n        <h2 color="primary">{{category.name}}</h2>\n        <ion-slides autoplay="5000" centeredSlides="true" spaceBetween="30" style="height: 30vh;" *ngIf="category.products">\n            <ion-slide *ngFor="let product of category.products" (tap)="viewProduct(product._id)">\n                <img [src]="\'http://45.55.238.48:8000/img/\' + product.imagePath" />\n            </ion-slide>\n        </ion-slides>\n    </div>\n\n</ion-content>'/*ion-inline-end:"/Users/denilsoncarvalhodacosta/projects/appBuilder-MVP/src/pages/home/home.html"*/,
+        selector: 'page-home',template:/*ion-inline-start:"C:\Users\denil\projects\appBuilder-MVP\src\pages\home\home.html"*/'<ion-header>\n\n    <ion-toolbar color="light">\n\n\n\n        <ion-buttons start>\n\n            <button ion-button icon-only color="primary">\n\n                <ion-icon name="menu"></ion-icon>\n\n            </button>\n\n        </ion-buttons>\n\n\n\n        <ion-title>Linx Moda Shop</ion-title>\n\n\n\n        <ion-buttons end>\n\n            <button ion-button icon-only color="primary" (click)="goToCartPage()">\n\n                <ion-icon class="lx lx-basket"></ion-icon>\n\n                <ion-badge id="notifications-badge" color="danger">5</ion-badge>\n\n            </button>\n\n        </ion-buttons>\n\n\n\n    </ion-toolbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n\n\n    <ion-slides autoplay="5000" class="banners" style="height: 30vh;">\n\n        <ion-slide style="background-color: green"></ion-slide>\n\n        <ion-slide style="background-color: blue"></ion-slide>\n\n        <ion-slide style="background-color: red"></ion-slide>\n\n    </ion-slides>\n\n\n\n    <div *ngFor="let category of categories">\n\n        <h2 color="primary">{{category.name}}</h2>\n\n        <ion-slides autoplay="5000" centeredSlides="true" spaceBetween="30" style="height: 30vh;" *ngIf="category.products">\n\n            <ion-slide *ngFor="let product of category.products" (tap)="viewProduct(product._id)">\n\n                <img [src]="\'http://45.55.238.48:8000/img/\' + product.imagePath" />\n\n            </ion-slide>\n\n        </ion-slides>\n\n    </div>\n\n\n\n</ion-content>'/*ion-inline-end:"C:\Users\denil\projects\appBuilder-MVP\src\pages\home\home.html"*/,
         providers: [__WEBPACK_IMPORTED_MODULE_2__providers_product_product__["a" /* ProductProvider */]]
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_product_product__["a" /* ProductProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]])
@@ -560,13 +561,16 @@ var CartProvider = (function () {
     function CartProvider(http) {
         this.http = http;
     }
+    // getItems() {
+    //   return new Promise(resolve => {
+    //     this.http.get(`${apiUrl}/carts`)
+    //       .map(res => res.json())
+    //       .subscribe(data => resolve(data))
+    //   })
+    // }
     CartProvider.prototype.getItems = function () {
-        var _this = this;
-        return new Promise(function (resolve) {
-            _this.http.get(apiUrl + "/carts")
-                .map(function (res) { return res.json(); })
-                .subscribe(function (data) { return resolve(data); });
-        });
+        return this.http.get(apiUrl + "/carts")
+            .map(function (response) { return response.json(); });
     };
     CartProvider.prototype.addItem = function (item) {
         var _this = this;
@@ -588,9 +592,10 @@ var CartProvider = (function () {
 }());
 CartProvider = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]) === "function" && _a || Object])
 ], CartProvider);
 
+var _a;
 //# sourceMappingURL=cart.js.map
 
 /***/ })

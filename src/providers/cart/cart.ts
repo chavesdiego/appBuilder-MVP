@@ -10,13 +10,18 @@ export class CartProvider {
 
   constructor(public http: Http) { }
 
-  getItems() {
-    return new Promise(resolve => {
+  // getItems() {
+  //   return new Promise(resolve => {
 
-      this.http.get(`${apiUrl}/carts`)
-        .map(res => res.json())
-        .subscribe(data => resolve(data))
-    })
+  //     this.http.get(`${apiUrl}/carts`)
+  //       .map(res => res.json())
+  //       .subscribe(data => resolve(data))
+  //   })
+  // }
+
+  getItems(): Observable<any[]> {
+    return this.http.get(`${apiUrl}/carts`)
+      .map(response => response.json())
   }
 
   addItem(item) {
