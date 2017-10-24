@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductProvider } from '../../providers/product/product';
-import { CartProvider } from '../../providers/cart/cart'
+import { CartProvider } from '../../providers/cart/cart';
+import { NotificationsProvider } from '../../providers/notifications/notifications'
 import { Events } from 'ionic-angular';
 
 /**
@@ -22,7 +23,7 @@ export class ViewProductPage {
   public productId: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private productService: ProductProvider, private cartService: CartProvider, public events: Events) {
+    private productService: ProductProvider, private cartService: CartProvider, public events: Events, private notificationsService: NotificationsProvider) {
     this.productId = navParams.get('productId');
   }
 
@@ -33,8 +34,9 @@ export class ViewProductPage {
       "price": product.price,
       "productId": product._id
     }
-    console.log(item)
     this.cartService.addItem(item)
+      .then(res => this.notificationsService.presentToast())
+
 
     //this.events.publish('cart:add', product, 1);
   }

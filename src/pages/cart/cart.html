@@ -9,8 +9,8 @@
 
     <ion-buttons start>
       <button ion-button icon-only color="primary" (click)="goToHomePage()">
-                <ion-icon name="home" ></ion-icon>
-            </button>
+        <ion-icon name="home"></ion-icon>
+      </button>
     </ion-buttons>
 
 
@@ -20,29 +20,14 @@
 </ion-header>
 
 
+
 <ion-content padding>
 
+  <ion-item>  
+    Cesta : {{items.length}}
+  </ion-item>
 
-  <!--<ion-card *ngFor="let item of items">
-
-      <ion-item>
-
-        <ion-avatar item-start>
-          <img [src]="'http://45.55.238.48:8000/img/' + item.imagePath" />
-          <p>
-            {{item.name}}
-          </p>
-
-        </ion-avatar>
-
-      </ion-item>
-
-    </ion-card>
-
-    <ion-item-options side="left">
-      <button ion-button color="danger" (click)="share(item)">Delete</button>
-    </ion-item-options>-->
-
+  <button ion-button full color="primary" (click)="goToHomePage()"> Finalizar Compra </button>
 
   <ion-list>
     <ion-item-sliding *ngFor="let item of items">
@@ -66,7 +51,7 @@
 
 
   <button ion-button full color="danger" (click)="cleanCart(product)"> Limpar Carrinho </button>
-  <button ion-button full color="primary" (click)="goToHomePage()"> Finalizar Compra </button>
+
 
 
 

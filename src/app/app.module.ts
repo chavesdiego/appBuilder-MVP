@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { ProductProvider } from '../providers/product/product';
 import { CartProvider } from '../providers/cart/cart';
+import { NotificationsProvider } from '../providers/notifications/notifications';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { CartProvider } from '../providers/cart/cart';
     SplashScreen,
     ProductProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    CartProvider
+    CartProvider,
+    NotificationsProvider
   ]
 })
 export class AppModule {}

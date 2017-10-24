@@ -1,3 +1,7 @@
+.toast-primary .toast-wrapper {
+  background: #5b2e90;
+}
+
 /* Import font icons linx */
 @font-face {
   font-family: 'linx-icon';
@@ -23439,7 +23443,7 @@ ion-toast {
   z-index: 10;
   display: block;
   max-width: 700px;
-  background: rgba(0, 0, 0, 0.9);
+  background: #5b2e90;
 }
 
 .toast-ios .toast-wrapper.toast-top {
