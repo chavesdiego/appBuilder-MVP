@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { CartProvider } from '../../providers/cart/cart'
+import { CartProvider } from '../../providers/cart/cart';
+import {NotificationsProvider} from '../../providers/notifications/notifications'
 
 
 import { HomePage } from '../home/home'
@@ -14,7 +15,7 @@ import { HomePage } from '../home/home'
 export class CartPage {
   public items: any = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private cartService: CartProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private cartService: CartProvider, private notificationsService : NotificationsProvider) {
   }
 
   ionViewDidLoad() {
@@ -29,12 +30,14 @@ export class CartPage {
   removeItem(item) {
     this.cartService.deleteItem(item._id)
       .then(this.items.splice(item, 1))
+      this.notificationsService.presentToast(`O item foi removido com sucesso.`)
 
   }
 
   cleanCart() {
     this.items.map(item => this.cartService.deleteItem(item._id))
     this.items = []
+    this.notificationsService.presentToast(`Carrinho limpo.`)
   }
 
   goToHomePage() {

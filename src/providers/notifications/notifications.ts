@@ -12,20 +12,14 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class NotificationsProvider {
 
-  constructor(public http: Http, public toastCtrl: ToastController) {
-    console.log('Hello NotificationsProvider Provider');
-  }
+  constructor(public http: Http, public toastCtrl: ToastController) {}
 
-  presentToast() {
+  presentToast(message: string) {
     const toast = this.toastCtrl.create({
-      message: 'User was added successfully',
-      duration: 19000,
+      message: message,
+      duration: 2000,
       position: 'botton',
       cssClass: 'toast-primary'
-    });
-
-    toast.onDidDismiss(() => {
-      console.log('Dismissed toast');
     });
 
     toast.present();

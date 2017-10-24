@@ -35,7 +35,10 @@ export class ViewProductPage {
       "productId": product._id
     }
     this.cartService.addItem(item)
-      .then(res => this.notificationsService.presentToast())
+      .then(res => {
+        let resObj = Object.assign(res)
+        this.notificationsService.presentToast(`O item ${resObj.name} foi adicionado com sucesso.`)
+      })
 
 
     //this.events.publish('cart:add', product, 1);
