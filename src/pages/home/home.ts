@@ -1,5 +1,5 @@
-import { Component } from '@angular/core'
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular'
+import { Component, ViewChild  } from '@angular/core'
+import { IonicPage, NavController, NavParams, ModalController, Slides  } from 'ionic-angular'
 import { ProductProvider } from '../../providers/product/product'
 
 import { ViewProductPage } from '../view-product/view-product'
@@ -14,8 +14,10 @@ import {CartPage} from '../cart/cart'
 })
 
 export class HomePage {
+  @ViewChild(Slides) slides: Slides;
   public products: any;
   public categories: any = [];
+  public selected: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private productService: ProductProvider, public modalCtrl: ModalController) {
   }
@@ -50,12 +52,28 @@ export class HomePage {
     }) 
   }
 
-  viewProduct(id) {
-    this.modalCtrl.create(ViewProductPage, { productId: id }).present()
+  selectProduct({target}, id) {
+
+    if(this.selected)
+      document.querySelector('.swiper-slide--selected')
+        .classList.remove('swiper-slide--selected')
+
+    target.classList.add('swiper-slide--selected')
+    
+    console.log(this.slides)
+
+    this.slides.stopAutoplay()
+    this.selected = id;
   }
 
-    goToCartPage() {
-    this.navCtrl.setRoot(CartPage);
+  viewProduct() {
+
+    this.modalCtrl.create(ViewProductPage, { productId: this.selected }).present()
+  }
+
+  goToCartPage() {
+
+    this.navCtrl.setRoot(CartPage)
   }
 
   ionViewDidLoad() {
