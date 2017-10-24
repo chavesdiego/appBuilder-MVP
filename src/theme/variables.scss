@@ -46,6 +46,11 @@ $toast-ios-background : #5b2e90;
 //   dark:       #222
 // );
 
+$text-color-primary:      #5B2E90 !default;
+
+
+.product-name { color: $text-color-primary; }
+
 
 // App iOS Variables
 // --------------------------------------------------
