@@ -33,7 +33,6 @@ export class HomePage {
       products
     })
 
-    console.log(this.categories)
   }
 
   splitByCategory(products) {

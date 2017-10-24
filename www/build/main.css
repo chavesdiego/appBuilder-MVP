@@ -33482,8 +33482,8 @@ ion-navbar.toolbar {
   display: inline-block;
 }
 
-page-home .banners {
-  height: 30vh;
+page-home .swiper-slide {
+  width: 40%;
 }
 
 page-login .login {
