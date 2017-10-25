@@ -1,6 +1,33 @@
 page-home {
 
-    .banners {
-        height: 30vh;
+    .scroll-content { margin-bottom: 0; }
+
+    .swiper-slide { 
+        width: 40%;
+        border: 2px solid transparent;
+        transition: border-color .25s;
+        
+        &.swiper-slide--selected { border-color: #ffb200; }
+
+        .slide-zoom { pointer-events: none; }
+    }
+
+    h2 {
+        color: #5b2e90; 
+        padding-left: 2vw;
+        font-size: 1.5em;
+    }
+
+    ion-footer {
+        text-align: center;
+        color: #fff;
+        text-transform: uppercase;
+        transition: bottom .15s;
+
+        &.footer-md { bottom: -56px; }
+        &.footer-ios { bottom: -44px; }
+
+        &.visible { bottom: 0; }
     }
 }
+

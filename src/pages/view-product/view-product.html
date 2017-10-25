@@ -13,10 +13,12 @@
     <div *ngIf="product">
         <ion-grid>
             <ion-row>
-                <ion-col col-6>
-                    <h1 class="product-name"> {{product.name}} </h1>
+                <ion-col col-8>
+                    <h1 class="product-name">
+                        <strong> {{product.name}} </strong>
+                    </h1>
                 </ion-col>
-                <ion-col padding col-6 text-right>
+                <ion-col padding col-4 text-right>
                     <ion-icon name="star"> {{product.rating}} </ion-icon>
                 </ion-col>
             </ion-row>
@@ -26,21 +28,33 @@
                 </ion-col>
             </ion-row>
             <ion-row>
-                <ion-col col-12>
-                    Color:
+                <ion-col col-12 class="product-datails">
+                    <h3 class="product-sku product-name"> Color: </h3>
 
-
+                    <span class="product-sku__color__yellow"></span>
+                    <span class="product-sku__color__red product-sku__color--active"></span>
+                    <span class="product-sku__color__blue"></span>
+                    <span class="product-sku__color__black"></span>
                 </ion-col>
             </ion-row>
             <ion-row>
-                <ion-col col-12>
-                   <strong class="product-name"> Size </strong> Size
+                <ion-col col-12 class="product-datails">
+                    <h3 class="product-sku product-name"> Size </h3>
+
+                    <span *ngFor="let size of product.sizes; let i = index" class="product-sku__size" [ngClass]="{'product-sku__size--active' : selected === i }" (click)="selectSize(i)"> {{size}} </span>
+
+                    <!-- <span class="product-sku__size product-sku__size--active"> {{product.size}} </span>
+                    <span class="product-sku__size"> 36 </span>
+                    <span class="product-sku__size"> 38 </span>
+                    <span class="product-sku__size"> 41 </span> -->
                 </ion-col>
             </ion-row>
 
             <ion-row>
                 <ion-col col-12>
-                    <p> Product Code : <strong>{{product._id}}</strong></p>
+                    <p class="product-name"> Product Code: </p>
+                    <strong>{{product._id}}</strong>
+
                 </ion-col>
             </ion-row>
         </ion-grid>
@@ -55,6 +69,6 @@
 
 <ion-footer color="primary" (click)="addToCart(product)">
     <ion-toolbar>
-        add to cart
+        <strong>Adicionar ao carrinho </strong>
     </ion-toolbar>
 </ion-footer>

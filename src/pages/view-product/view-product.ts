@@ -21,6 +21,7 @@ import { Events } from 'ionic-angular';
 export class ViewProductPage {
   public product: any;
   public productId: any;
+  public selected: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private productService: ProductProvider, private cartService: CartProvider, public events: Events, private notificationsService: NotificationsProvider) {
@@ -40,8 +41,23 @@ export class ViewProductPage {
         this.notificationsService.presentToast(`O item ${resObj.name} foi adicionado com sucesso.`)
       })
 
+  }
 
-    //this.events.publish('cart:add', product, 1);
+  selectSize(index) {
+    console.log('indeeeeex', index)
+
+    this.selected = index
+    //   if(this.selected)
+    //     document.querySelector('.swiper-slide--selected')
+    //       .classList.remove('swiper-slide--selected')
+
+    //   target.classList.add('swiper-slide--selected')
+
+    //   console.log(this.slides)
+
+    //   this.slides.stopAutoplay()
+    //   this.selected = id;
+    // }
   }
 
   ionViewDidLoad() {

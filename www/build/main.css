@@ -33486,8 +33486,49 @@ ion-navbar.toolbar {
   display: inline-block;
 }
 
-page-home .banners {
-  height: 30vh;
+page-home .scroll-content {
+  margin-bottom: 0;
+}
+
+page-home .swiper-slide {
+  width: 40%;
+  border: 2px solid transparent;
+  -webkit-transition: border-color .25s;
+  transition: border-color .25s;
+}
+
+page-home .swiper-slide.swiper-slide--selected {
+  border-color: #ffb200;
+}
+
+page-home .swiper-slide .slide-zoom {
+  pointer-events: none;
+}
+
+page-home h2 {
+  color: #5b2e90;
+  padding-left: 2vw;
+  font-size: 1.5em;
+}
+
+page-home ion-footer {
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  -webkit-transition: bottom .15s;
+  transition: bottom .15s;
+}
+
+page-home ion-footer.footer-md {
+  bottom: -56px;
+}
+
+page-home ion-footer.footer-ios {
+  bottom: -44px;
+}
+
+page-home ion-footer.visible {
+  bottom: 0;
 }
 
 page-login .login {
@@ -33517,4 +33558,46 @@ page-view-product .loading {
   text-align: center;
   line-height: 100vh;
   background: #fff;
+}
+
+page-view-product .product-item, page-view-product .product-datails [class*="product-sku__color"], page-view-product .product-datails [class*="product-sku__size"] {
+  display: inline-block;
+  height: 60px;
+  width: 60px;
+}
+
+page-view-product .product-datails [class*="product-sku__color"],
+page-view-product .product-datails [class*="product-sku__size"] {
+  border: 3px solid transparent;
+  margin-right: .5em;
+}
+
+page-view-product .product-datails [class*="__red"] {
+  background: red;
+}
+
+page-view-product .product-datails [class*="__yellow"] {
+  background: yellow;
+}
+
+page-view-product .product-datails [class*="__blue"] {
+  background: blue;
+}
+
+page-view-product .product-datails [class*="__black"] {
+  background: black;
+}
+
+page-view-product .product-datails .product-sku__size {
+  color: #666;
+  font-weight: 400;
+  line-height: 60px;
+  text-align: center;
+  background: #bbb;
+  margin-bottom: .5em;
+}
+
+page-view-product .product-datails [class*="color--active"],
+page-view-product .product-datails [class*="size--active"] {
+  border: 3px solid orange;
 }
