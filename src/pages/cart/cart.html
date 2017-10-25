@@ -5,54 +5,48 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-toolbar color="light">
-
-    <ion-buttons start>
-      <button ion-button icon-only color="primary" (click)="goToHomePage()">
-        <ion-icon name="home"></ion-icon>
-      </button>
-    </ion-buttons>
-
-
-    <ion-title>CAAART</ion-title>
-
-  </ion-toolbar>
+    <ion-toolbar color="light">
+        <ion-buttons start>
+            <button ion-button icon-only color="primary" (click)="goToHomePage()">
+                <ion-icon name="home"></ion-icon>
+          </button>
+        </ion-buttons>
+        <ion-title>Linx Moda Shop</ion-title>
+    </ion-toolbar>
 </ion-header>
-
 
 
 <ion-content padding>
 
-  <ion-item>  
-    Cesta : {{items.length}}
-  </ion-item>
-
-  <button ion-button full color="primary" (click)="goToHomePage()"> Finalizar Compra </button>
-
-  <ion-list>
-    <ion-item-sliding *ngFor="let item of items">
-
-      <ion-item>
-        <ion-avatar item-start>
-          <img [src]="'http://45.55.238.48:8000/img/' + item.imagePath" />
-          <p>
-            {{item.name}}
-          </p>
-        </ion-avatar>
-
-      </ion-item>
-
-      <ion-item-options side="right">>
-        <button ion-button color="danger" (click)="removeItem(item)">Delete</button>
-      </ion-item-options>
-
-    </ion-item-sliding>
-  </ion-list>
+    <!-- <dl>
+        <dt></dt>
+        <dd>
+            {{items.length}}
+        </dd>
+    </dl> -->
 
 
-  <button ion-button full color="danger" (click)="cleanCart(product)"> Limpar Carrinho </button>
+    <ion-list>
+        <ion-item-sliding *ngFor="let item of items">
 
+            <ion-item no-lines>
+                <ion-thumbnail item-start>
+                    <img [src]="'http://45.55.238.48:8000/img/' + item.imagePath" />
+                </ion-thumbnail>
+                {{item.name}}
+            </ion-item>
 
+            <ion-item-options side="right">
+                <button ion-button color="danger" (click)="removeItem(item)">
+                    <ion-icon name="trash"></ion-icon>
+                </button>
+            </ion-item-options>
+
+        </ion-item-sliding>
+    </ion-list>
+
+    <button ion-button full color="danger" (click)="cleanCart(product)"> Limpar Carrinho </button>
+    <button ion-button full color="primary" (click)="goToHomePage()"> Finalizar Compra </button>
 
 
 </ion-content>

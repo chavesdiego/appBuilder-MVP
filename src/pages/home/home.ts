@@ -73,10 +73,13 @@ export class HomePage {
 
   goToCartPage() {
 
-    this.navCtrl.setRoot(CartPage)
+    // this.navCtrl.setRoot(CartPage)
+    this.modalCtrl.create(CartPage).present()
+    
   }
 
   ionViewDidLoad() {
+    console.log('ionViewDidLoad Home');
     
     this.loadProducts()
   }

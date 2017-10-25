@@ -19,7 +19,7 @@ export class CartPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad CartPage');
+    // console.log('ionViewDidLoad CartPage');
   }
 
   ngOnInit() {
@@ -41,7 +41,8 @@ export class CartPage {
   }
 
   goToHomePage() {
-    this.navCtrl.setRoot(HomePage);
+    // this.navCtrl.setRoot(HomePage);
+    this.navCtrl.pop();
   }
 
 
