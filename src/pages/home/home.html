@@ -20,11 +20,18 @@
 </ion-header>
 
 <ion-content>
-
-    <ion-slides autoplay="5000" class="banners" style="height: 33vh;">
-        <ion-slide style="background-color: green"></ion-slide>
-        <ion-slide style="background-color: blue"></ion-slide>
-        <ion-slide style="background-color: red"></ion-slide>
+    <ul class="menu">
+        <li class="menu__item"> Women </li>
+        <li class="menu__item"> Man </li>
+        <li class="menu__item"> Kids </li>
+        <li class="menu__item"> Babies </li>
+    </ul>
+    
+    <ion-slides autoplay="5000" class="banners" style="height: 33vh;" *ngIf="categories.length">
+        <ion-slide *ngFor="let category of categories">
+            <img [src]="'http://45.55.238.48:8000/img/' + category.products[0].imagePath" />
+            <button ion-button color="secondary" class="btn-go"> EU QUERO </button>
+        </ion-slide>
     </ion-slides>
 
     <div *ngFor="let category of categories">

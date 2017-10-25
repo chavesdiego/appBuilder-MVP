@@ -33505,6 +33505,14 @@ page-home .swiper-slide .slide-zoom {
   pointer-events: none;
 }
 
+page-home .swiper-slide .btn-go {
+  position: absolute;
+  left: -50%;
+  bottom: 40px;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
 page-home h2 {
   color: #5b2e90;
   padding-left: 2vw;
@@ -33529,6 +33537,20 @@ page-home ion-footer.footer-ios {
 
 page-home ion-footer.visible {
   bottom: 0;
+}
+
+.menu {
+  list-style: none;
+  padding: .3em 0;
+  margin: 1.3em 0 3em 0;
+}
+
+.menu .menu__item {
+  float: left;
+  font-size: 1.5em;
+  color: #333;
+  text-transform: capitalize;
+  margin: 0 .6em;
 }
 
 page-login .login {
