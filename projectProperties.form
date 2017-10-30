@@ -1,0 +1,73 @@
+{
+    "fields": [{
+        "key": "metadata",
+        "className": "row",
+        "templateOptions": {
+            "label": "Metadata"
+        },
+        "fieldGroup": [{
+            "className": "col-xs-6",
+            "key": "productName",
+            "type": "input",
+            "templateOptions": {
+                "required": true,
+                "label": "Product Name"
+            }
+        }, {
+            "className": "col-xs-6",
+            "key": "productTitle",
+            "type": "input",
+            "templateOptions": {
+                "required": true,
+                "label": "Product Title"
+            }
+        }, {
+            "className": "col-xs-6",
+            "key": "productNameMin",
+            "type": "input",
+            "templateOptions": {
+                "required": true,
+                "label": "Product Name Compact"
+            }
+        }, {
+            "className": "col-xs-6",
+            "key": "productVersion",
+            "type": "input",
+            "templateOptions": {
+                "required": true,
+                "label": "Product Version"
+            }
+        }, {
+            "className": "col-xs-12",
+            "key": "companyName",
+            "type": "input",
+            "templateOptions": {
+                "required": true,
+                "label": "Company Name"
+            }
+        }, {
+            "className": "col-xs-12",
+            "key": "companyNameUrl",
+            "type": "input",
+            "templateOptions": {
+                "required": true,
+                "type": "url",
+                "label": "Company Url",
+                "addonLeft": {
+                    "class": "glyphicon glyphicon-link"
+                }
+            }
+        }]
+    }],
+    "model": {
+        "metadata": {
+            "productName": "appBuilder-MVP",
+            "productTitle": "appBuilder-MVP",
+            "productNameMin": "appBuilderMVP",
+            "productVersion": "1.0.0",
+            "companyName": "Linx Sistemas S.A.",
+            "buildDate": "",
+            "companyNameUrl": "http://www.linx.com.br"
+        }
+    }
+}
