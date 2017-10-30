@@ -17,7 +17,7 @@ export class ModalProvider {
   }
 
   openModal() {
-    this.modalCtrl.create().present();
+    // this.modalCtrl.create().present();
     
   }
 

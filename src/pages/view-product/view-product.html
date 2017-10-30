@@ -31,22 +31,14 @@
                 <ion-col col-12 class="product-datails">
                     <h3 class="product-sku product-name"> Color: </h3>
 
-                    <span class="product-sku__color__yellow"></span>
-                    <span class="product-sku__color__red product-sku__color--active"></span>
-                    <span class="product-sku__color__blue"></span>
-                    <span class="product-sku__color__black"></span>
+                    <span *ngFor="let color of colors" class="product-sku__color__{{color}}" [ngClass]="{'product-sku__color--active' : selectedColor === color}" (click)="selectColor(color)"></span>
                 </ion-col>
             </ion-row>
             <ion-row>
                 <ion-col col-12 class="product-datails">
                     <h3 class="product-sku product-name"> Size </h3>
 
-                    <span *ngFor="let size of product.sizes; let i = index" class="product-sku__size" [ngClass]="{'product-sku__size--active' : selected === i }" (click)="selectSize(i)"> {{size}} </span>
-
-                    <!-- <span class="product-sku__size product-sku__size--active"> {{product.size}} </span>
-                    <span class="product-sku__size"> 36 </span>
-                    <span class="product-sku__size"> 38 </span>
-                    <span class="product-sku__size"> 41 </span> -->
+                    <span *ngFor="let size of product.sizes; let i = index" class="product-sku__size" [ngClass]="{'product-sku__size--active' : selectedSize === i }" (click)="selectSize(i)"> {{size}} </span>
                 </ion-col>
             </ion-row>
 

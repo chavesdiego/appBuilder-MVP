@@ -23,7 +23,8 @@ import { Events } from 'ionic-angular';
 export class ViewProductPage {
   public product: any;
   public productId: any;
-  public selected: any;
+  public selectedSize: any;
+  public selectedColor: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private productService: ProductProvider, private cartService: CartProvider, private modalService: ModalProvider, public events: Events, private notificationsService: NotificationsProvider) {
@@ -49,7 +50,7 @@ export class ViewProductPage {
   selectSize(index) {
     console.log('indeeeeex', index)
 
-    this.selected = index
+    this.selectedSize = index
     //   if(this.selected)
     //     document.querySelector('.swiper-slide--selected')
     //       .classList.remove('swiper-slide--selected')
@@ -62,6 +63,14 @@ export class ViewProductPage {
     //   this.selected = id;
     // }
   }
+
+  selectColor(index) {
+    console.log('Color: ', index);
+
+    this.selectedColor = index
+  }
+
+  colors = ['green', 'red', 'blue', 'black']
 
   ionViewDidLoad() {
 
