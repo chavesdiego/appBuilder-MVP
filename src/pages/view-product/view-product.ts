@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductProvider } from '../../providers/product/product';
 import { CartProvider } from '../../providers/cart/cart';
 import { NotificationsProvider } from '../../providers/notifications/notifications'
+import { ModalProvider } from '../../providers/modal/modal';
+
 import { Events } from 'ionic-angular';
 
 /**
@@ -24,11 +26,12 @@ export class ViewProductPage {
   public selected: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private productService: ProductProvider, private cartService: CartProvider, public events: Events, private notificationsService: NotificationsProvider) {
+    private productService: ProductProvider, private cartService: CartProvider, private modalService: ModalProvider, public events: Events, private notificationsService: NotificationsProvider) {
     this.productId = navParams.get('productId');
   }
 
   addToCart(product) {
+    this.modalService.openModal();
     let item = {
       "name": product.name,
       "imagePath": product.imagePath,
