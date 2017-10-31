@@ -1,13 +1,13 @@
 page-home {
-    
 
-    .scroll-content { margin-bottom: 0; }
 
-    .swiper-slide { 
+    .scroll-content, .fixed-content { margin-bottom: 0 !important; }
+
+    .swiper-slide {
         width: 40%;
         border: 2px solid transparent;
         transition: border-color .25s;
-        
+
         &.swiper-slide--selected { border-color: #ffb200; }
 
         .slide-zoom { pointer-events: none; }
@@ -20,7 +20,7 @@ page-home {
     }
 
     h2 {
-        color: #5b2e90; 
+        color: #5b2e90;
         padding-left: 2vw;
         font-size: 1.5em;
     }
