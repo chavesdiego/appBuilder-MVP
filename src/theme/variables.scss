@@ -17,9 +17,6 @@ $app-direction: ltr;
 @import "ionic.globals";
 
 
-$toast-ios-background : #5b2e90;
-
-
 // Shared Variables
 // --------------------------------------------------
 // To customize the look and feel of this app, you can override
@@ -49,7 +46,11 @@ $toast-ios-background : #5b2e90;
 $text-color-primary:      #5B2E90 !default;
 
 
-.product-name { color: $text-color-primary; }
+.product-name {
+    color: $text-color-primary;
+    
+    margin: 0 0 5px 0;
+}
 
 
 // App iOS Variables
