@@ -33483,8 +33483,8 @@ ion-navbar.toolbar {
   display: inline-block;
 }
 
-page-home .scroll-content {
-  margin-bottom: 0;
+page-home .scroll-content, page-home .fixed-content {
+  margin-bottom: 0 !important;
 }
 
 page-home .swiper-slide {
