@@ -39,7 +39,7 @@
         <h2 class="">{{category.name}}</h2>
 
         <ion-slides slidesPerView="auto" centeredSlides="true" spaceBetween="15" initialSlide="1" style="height: 30vh;" *ngIf="category.products">
-            <ion-slide *ngFor="let product of category.products" (tap)="selectProduct($event, product._id)">
+            <ion-slide *ngFor="let product of category.products" (tap)="selectProduct($event, product._id)" (doubleTap)="productPreview($event, product._id)">
                 <img [src]="'http://45.55.238.48:8000/img/' + product.imagePath" />
             </ion-slide>
         </ion-slides>

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ModalController, Slides } from 'io
 import { ProductProvider } from '../../providers/product/product'
 
 import { ViewProductPage } from '../view-product/view-product'
+import { ProductPreviewPage } from '../product-preview/product-preview'
 import { CartPage } from '../cart/cart'
 
 @IonicPage()
@@ -60,9 +61,7 @@ export class HomePage {
 
     target.classList.add('swiper-slide--selected')
 
-    console.log(this.slides)
-
-    this.slides.stopAutoplay()
+    // this.slides.stopAutoplay()
     this.selected = id;
   }
 
@@ -70,6 +69,18 @@ export class HomePage {
 
     this.modalCtrl.create(ViewProductPage, { productId: this.selected }).present()
   }
+
+  productPreview({ target }, id) {
+
+    target.classList.add('preview')
+
+    setTimeout(() => {
+      target.classList.remove('preview')
+      this.modalCtrl.create(ProductPreviewPage,{ productId: id }).present()
+    }, 250)
+
+  }
+
 
   goToCartPage() {
 

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, AlertController, Events } from 'ionic-angular';
 import { ProductProvider } from '../../providers/product/product';
 import { CartProvider } from '../../providers/cart/cart';
-import { NotificationsProvider } from '../../providers/notifications/notifications'
+import { NotificationsProvider } from '../../providers/notifications/notifications';
 import { ModalNavigatePage } from '../modal-navigate/modal-navigate';
 
 /**

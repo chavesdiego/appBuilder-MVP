@@ -1,0 +1,24 @@
+<!--
+  Generated template for the ProductPreviewPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<ion-content padding>
+
+  <ion-grid *ngIf="product">
+    <ion-row>
+      {{product.name}}
+
+    </ion-row>
+
+    <ion-row>
+      <button (click)="dismiss()" ion-button col-4>Cancel</button>
+      <button ion-button col-4 offset-3>Confirm</button>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+<div class="backdrop" (click)="dismiss()"></div>
