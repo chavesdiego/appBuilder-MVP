@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { ProductProvider } from '../../providers/product/product';
 import { CartProvider } from '../../providers/cart/cart';
 import { NotificationsProvider } from '../../providers/notifications/notifications'
-import { ModalProvider } from '../../providers/modal/modal';
+import { ModalNavigatePage } from '../modal-navigate/modal-navigate';
 
 import { Events } from 'ionic-angular';
 
@@ -23,16 +23,16 @@ import { Events } from 'ionic-angular';
 export class ViewProductPage {
   public product: any;
   public productId: any;
-  public selectedSize: any;
+  public selected: any;
   public selectedColor: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
-    private productService: ProductProvider, private cartService: CartProvider, private modalService: ModalProvider, public events: Events, private notificationsService: NotificationsProvider) {
+    private productService: ProductProvider, private modal : ModalController, private cartService: CartProvider, public events: Events, private notificationsService: NotificationsProvider) {
     this.productId = navParams.get('productId');
   }
 
   addToCart(product) {
-    this.modalService.openModal();
+    this.openModal();
     let item = {
       "name": product.name,
       "imagePath": product.imagePath,
@@ -47,10 +47,15 @@ export class ViewProductPage {
 
   }
 
+  openModal(){
+    const myModal = this.modal.create('ModalNavigatePage')
+    myModal.present()
+  }
+
   selectSize(index) {
     console.log('indeeeeex', index)
 
-    this.selectedSize = index
+    this.selected = index
     //   if(this.selected)
     //     document.querySelector('.swiper-slide--selected')
     //       .classList.remove('swiper-slide--selected')
@@ -63,8 +68,8 @@ export class ViewProductPage {
     //   this.selected = id;
     // }
   }
-
-  selectColor(index) {
+  
+    selectColor(index) {
     console.log('Color: ', index);
 
     this.selectedColor = index

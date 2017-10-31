@@ -41,7 +41,6 @@ export class CartPage {
   }
 
   goToHomePage() {
-    // this.navCtrl.setRoot(HomePage);
     this.navCtrl.pop();
   }
 

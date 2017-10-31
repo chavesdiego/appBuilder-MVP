@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CartComponent } from './cart/cart';
+import { CartComponent } from './cart/cart'
 @NgModule({
 	declarations: [CartComponent],
 	imports: [],

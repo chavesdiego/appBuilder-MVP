@@ -33584,22 +33584,23 @@ page-view-product .loading {
 
 page-view-product .product-item, page-view-product .product-datails [class*="product-sku__color"], page-view-product .product-datails [class*="product-sku__size"] {
   display: inline-block;
-  height: 60px;
-  width: 60px;
+  height: 40px;
+  width: 40px;
 }
 
 page-view-product .product-datails [class*="product-sku__color"],
 page-view-product .product-datails [class*="product-sku__size"] {
   border: 3px solid transparent;
   margin-right: .5em;
+  position: relative;
 }
 
 page-view-product .product-datails [class*="__red"] {
   background: red;
 }
 
-page-view-product .product-datails [class*="__yellow"] {
-  background: yellow;
+page-view-product .product-datails [class*="__green"] {
+  background: green;
 }
 
 page-view-product .product-datails [class*="__blue"] {
@@ -33613,15 +33614,26 @@ page-view-product .product-datails [class*="__black"] {
 page-view-product .product-datails .product-sku__size {
   color: #666;
   font-weight: 400;
-  line-height: 60px;
+  line-height: 40px;
   text-align: center;
   background: #bbb;
   margin-bottom: .5em;
 }
 
-page-view-product .product-datails [class*="color--active"],
-page-view-product .product-datails [class*="size--active"] {
+page-view-product .product-datails [class*="product-sku__color--active"],
+page-view-product .product-datails [class*="product-sku__size--active"] {
   border: 3px solid orange;
+}
+
+page-view-product .product-datails [class*="product-sku__color--active"]:before {
+  content: "\f3ff";
+  color: #fff;
+  font-family: "Ionicons";
+  font-size: 300%;
+  line-height: 35px;
+  text-align: center;
+  position: absolute;
+  left: 25%;
 }
 
 page-view-product ion-footer {

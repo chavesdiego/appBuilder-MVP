@@ -1,4 +1,4 @@
-webpackJsonp([4],{
+webpackJsonp([5],{
 
 /***/ 103:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -10,7 +10,6 @@ webpackJsonp([4],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_product_product__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_cart_cart__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_notifications_notifications__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_modal_modal__ = __webpack_require__(273);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -26,7 +25,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 /**
  * Generated class for the ViewProductPage page.
  *
@@ -34,19 +32,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * on Ionic pages and navigation.
  */
 var ViewProductPage = (function () {
-    function ViewProductPage(navCtrl, navParams, productService, cartService, modalService, events, notificationsService) {
+    function ViewProductPage(navCtrl, navParams, productService, modal, cartService, events, notificationsService) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.productService = productService;
+        this.modal = modal;
         this.cartService = cartService;
-        this.modalService = modalService;
         this.events = events;
         this.notificationsService = notificationsService;
+        this.colors = ['green', 'red', 'blue', 'black'];
         this.productId = navParams.get('productId');
     }
     ViewProductPage.prototype.addToCart = function (product) {
         var _this = this;
-        this.modalService.openModal();
+        this.openModal();
         var item = {
             "name": product.name,
             "imagePath": product.imagePath,
@@ -58,6 +57,10 @@ var ViewProductPage = (function () {
             var resObj = Object.assign(res);
             _this.notificationsService.presentToast("O item " + resObj.name + " foi adicionado com sucesso.");
         });
+    };
+    ViewProductPage.prototype.openModal = function () {
+        var myModal = this.modal.create('ModalNavigatePage');
+        myModal.present();
     };
     ViewProductPage.prototype.selectSize = function (index) {
         console.log('indeeeeex', index);
@@ -71,6 +74,10 @@ var ViewProductPage = (function () {
         //   this.selected = id;
         // }
     };
+    ViewProductPage.prototype.selectColor = function (index) {
+        console.log('Color: ', index);
+        this.selectedColor = index;
+    };
     ViewProductPage.prototype.ionViewDidLoad = function () {
         var _this = this;
         this.productService.getProduct(this.productId)
@@ -81,12 +88,12 @@ var ViewProductPage = (function () {
 ViewProductPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-view-product',template:/*ion-inline-start:"C:\LinxBuilder\Projects-DEV\appBuilder-MVP\src\pages\view-product\view-product.html"*/'<!--\n\n  Generated template for the ViewProductPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header color="light">\n\n    <ion-navbar color="light"></ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n    <div *ngIf="product">\n\n        <ion-grid>\n\n            <ion-row>\n\n                <ion-col col-8>\n\n                    <h1 class="product-name">\n\n                        <strong> {{product.name}} </strong>\n\n                    </h1>\n\n                </ion-col>\n\n                <ion-col padding col-4 text-right>\n\n                    <ion-icon name="star"> {{product.rating}} </ion-icon>\n\n                </ion-col>\n\n            </ion-row>\n\n            <ion-row>\n\n                <ion-col col-12>\n\n                    <img [src]="\'http://45.55.238.48:8000/img/\' + product.imagePath" />\n\n                </ion-col>\n\n            </ion-row>\n\n            <ion-row>\n\n                <ion-col col-12 class="product-datails">\n\n                    <h3 class="product-sku product-name"> Color: </h3>\n\n\n\n                    <span class="product-sku__color__yellow"></span>\n\n                    <span class="product-sku__color__red product-sku__color--active"></span>\n\n                    <span class="product-sku__color__blue"></span>\n\n                    <span class="product-sku__color__black"></span>\n\n                </ion-col>\n\n            </ion-row>\n\n            <ion-row>\n\n                <ion-col col-12 class="product-datails">\n\n                    <h3 class="product-sku product-name"> Size </h3>\n\n\n\n                    <span *ngFor="let size of product.sizes; let i = index" class="product-sku__size" [ngClass]="{\'product-sku__size--active\' : selected === i }" (click)="selectSize(i)"> {{size}} </span>\n\n\n\n                    <!-- <span class="product-sku__size product-sku__size--active"> {{product.size}} </span>\n\n                    <span class="product-sku__size"> 36 </span>\n\n                    <span class="product-sku__size"> 38 </span>\n\n                    <span class="product-sku__size"> 41 </span> -->\n\n                </ion-col>\n\n            </ion-row>\n\n\n\n            <ion-row>\n\n                <ion-col col-12>\n\n                    <p class="product-name"> Product Code: </p>\n\n                    <strong>{{product._id}}</strong>\n\n\n\n                </ion-col>\n\n            </ion-row>\n\n        </ion-grid>\n\n\n\n    </div>\n\n\n\n\n\n    <div *ngIf="!product" class="loading">\n\n        <ion-spinner name="crescent"></ion-spinner>\n\n    </div>\n\n</ion-content>\n\n\n\n<ion-footer color="primary" (click)="addToCart(product)">\n\n    <ion-toolbar>\n\n        <strong>Adicionar ao carrinho </strong>\n\n    </ion-toolbar>\n\n</ion-footer>'/*ion-inline-end:"C:\LinxBuilder\Projects-DEV\appBuilder-MVP\src\pages\view-product\view-product.html"*/
+        selector: 'page-view-product',template:/*ion-inline-start:"C:\LinxBuilder\Projects-DEV\appBuilder-MVP\src\pages\view-product\view-product.html"*/'<!--\n\n  Generated template for the ViewProductPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header color="light">\n\n    <ion-navbar color="light"></ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n    <div *ngIf="product">\n\n        <ion-grid>\n\n            <ion-row>\n\n                <ion-col col-8>\n\n                    <h1 class="product-name">\n\n                        <strong> {{product.name}} </strong>\n\n                    </h1>\n\n                </ion-col>\n\n                <ion-col padding col-4 text-right>\n\n                    <ion-icon name="star"> {{product.rating}} </ion-icon>\n\n                </ion-col>\n\n            </ion-row>\n\n            <ion-row>\n\n                <ion-col col-12>\n\n                    <img [src]="\'http://45.55.238.48:8000/img/\' + product.imagePath" />\n\n                </ion-col>\n\n            </ion-row>\n\n            <ion-row>\n\n                <ion-col col-12 class="product-datails">\n\n                    <h3 class="product-sku product-name"> Color: </h3>\n\n\n\n                    <span *ngFor="let color of colors" class="product-sku__color__{{color}}" [ngClass]="{\'product-sku__color--active\' : selectedColor === color}" (click)="selectColor(color)"></span>\n\n                </ion-col>\n\n            </ion-row>\n\n            <ion-row>\n\n                <ion-col col-12 class="product-datails">\n\n                    <h3 class="product-sku product-name"> Size </h3>\n\n\n\n                    <span *ngFor="let size of product.sizes; let i = index" class="product-sku__size" [ngClass]="{\'product-sku__size--active\' : selectedSize === i }" (click)="selectSize(i)"> {{size}} </span>\n\n                </ion-col>\n\n            </ion-row>\n\n\n\n            <ion-row>\n\n                <ion-col col-12>\n\n                    <p class="product-name"> Product Code: </p>\n\n                    <strong>{{product._id}}</strong>\n\n\n\n                </ion-col>\n\n            </ion-row>\n\n        </ion-grid>\n\n\n\n    </div>\n\n\n\n\n\n    <div *ngIf="!product" class="loading">\n\n        <ion-spinner name="crescent"></ion-spinner>\n\n    </div>\n\n</ion-content>\n\n\n\n<ion-footer color="primary" (click)="addToCart(product)">\n\n    <ion-toolbar>\n\n        <strong>Adicionar ao carrinho </strong>\n\n    </ion-toolbar>\n\n</ion-footer>'/*ion-inline-end:"C:\LinxBuilder\Projects-DEV\appBuilder-MVP\src\pages\view-product\view-product.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_product_product__["a" /* ProductProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_product_product__["a" /* ProductProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_cart_cart__["a" /* CartProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_cart_cart__["a" /* CartProvider */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_5__providers_modal_modal__["a" /* ModalProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__providers_modal_modal__["a" /* ModalProvider */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Events */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_4__providers_notifications_notifications__["a" /* NotificationsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_notifications_notifications__["a" /* NotificationsProvider */]) === "function" && _g || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
+        __WEBPACK_IMPORTED_MODULE_2__providers_product_product__["a" /* ProductProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */], __WEBPACK_IMPORTED_MODULE_3__providers_cart_cart__["a" /* CartProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* Events */], __WEBPACK_IMPORTED_MODULE_4__providers_notifications_notifications__["a" /* NotificationsProvider */]])
 ], ViewProductPage);
 
-var _a, _b, _c, _d, _e, _f, _g;
 //# sourceMappingURL=view-product.js.map
 
 /***/ }),
@@ -141,7 +148,6 @@ var CartPage = (function () {
         this.notificationsService.presentToast("Carrinho limpo.");
     };
     CartPage.prototype.goToHomePage = function () {
-        // this.navCtrl.setRoot(HomePage);
         this.navCtrl.pop();
     };
     return CartPage;
@@ -151,9 +157,10 @@ CartPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
         selector: 'page-cart',template:/*ion-inline-start:"C:\LinxBuilder\Projects-DEV\appBuilder-MVP\src\pages\cart\cart.html"*/'<!--\n\n  Generated template for the CartPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n    <ion-toolbar color="light">\n\n        <ion-buttons start>\n\n            <button ion-button icon-only color="primary" (click)="goToHomePage()">\n\n                <ion-icon name="home"></ion-icon>\n\n          </button>\n\n        </ion-buttons>\n\n        <ion-title>Linx Moda Shop</ion-title>\n\n    </ion-toolbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n    <!-- <dl>\n\n        <dt></dt>\n\n        <dd>\n\n            {{items.length}}\n\n        </dd>\n\n    </dl> -->\n\n\n\n\n\n    <ion-list>\n\n        <ion-item-sliding *ngFor="let item of items">\n\n\n\n            <ion-item no-lines>\n\n                <ion-thumbnail item-start>\n\n                    <img [src]="\'http://45.55.238.48:8000/img/\' + item.imagePath" />\n\n                </ion-thumbnail>\n\n                {{item.name}}\n\n            </ion-item>\n\n\n\n            <ion-item-options side="right">\n\n                <button ion-button color="danger" (click)="removeItem(item)">\n\n                    <ion-icon name="trash"></ion-icon>\n\n                </button>\n\n            </ion-item-options>\n\n\n\n        </ion-item-sliding>\n\n    </ion-list>\n\n\n\n    <button ion-button full color="danger" (click)="cleanCart(product)"> Limpar Carrinho </button>\n\n    <button ion-button full color="primary" (click)="goToHomePage()"> Finalizar Compra </button>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"C:\LinxBuilder\Projects-DEV\appBuilder-MVP\src\pages\cart\cart.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_cart_cart__["a" /* CartProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_notifications_notifications__["a" /* NotificationsProvider */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_cart_cart__["a" /* CartProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_cart_cart__["a" /* CartProvider */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_notifications_notifications__["a" /* NotificationsProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_notifications_notifications__["a" /* NotificationsProvider */]) === "function" && _d || Object])
 ], CartPage);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=cart.js.map
 
 /***/ }),
@@ -324,20 +331,24 @@ webpackEmptyAsyncContext.id = 115;
 
 var map = {
 	"../pages/cart/cart.module": [
-		270,
-		3
+		271,
+		4
 	],
 	"../pages/home/home.module": [
-		271,
-		2
+		272,
+		3
 	],
 	"../pages/login/login.module": [
-		272,
-		1
+		273,
+		2
 	],
-	"../pages/view-product/view-product.module": [
+	"../pages/modal-navigate/modal-navigate.module": [
 		269,
 		0
+	],
+	"../pages/view-product/view-product.module": [
+		270,
+		1
 	]
 };
 function webpackAsyncContext(req) {
@@ -389,14 +400,12 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_product_product__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__providers_cart_cart__ = __webpack_require__(79);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__providers_notifications_notifications__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__providers_modal_modal__ = __webpack_require__(273);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -432,6 +441,7 @@ AppModule = __decorate([
                 iconMode: 'md'
             }, {
                 links: [
+                    { loadChildren: '../pages/modal-navigate/modal-navigate.module#ModalNavigatePageModule', name: 'ModalNavigatePage', segment: 'modal-navigate', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/view-product/view-product.module#ViewProductPageModule', name: 'ViewProductPage', segment: 'view-product', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/cart/cart.module#CartPageModule', name: 'CartPage', segment: 'cart', priority: 'low', defaultHistory: [] },
                     { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
@@ -454,8 +464,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_11__providers_product_product__["a" /* ProductProvider */],
             { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["c" /* IonicErrorHandler */] },
             __WEBPACK_IMPORTED_MODULE_12__providers_cart_cart__["a" /* CartProvider */],
-            __WEBPACK_IMPORTED_MODULE_13__providers_notifications_notifications__["a" /* NotificationsProvider */],
-            __WEBPACK_IMPORTED_MODULE_14__providers_modal_modal__["a" /* ModalProvider */]
+            __WEBPACK_IMPORTED_MODULE_13__providers_notifications_notifications__["a" /* NotificationsProvider */]
         ]
     })
 ], AppModule);
@@ -517,53 +526,6 @@ MyApp = __decorate([
 ], MyApp);
 
 //# sourceMappingURL=app.component.js.map
-
-/***/ }),
-
-/***/ 273:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModalProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__(78);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/*
-  Generated class for the ModalProvider provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular DI.
-*/
-var ModalProvider = (function () {
-    function ModalProvider(modalCtrl) {
-        this.modalCtrl = modalCtrl;
-        console.log('Hello ModalProvider Provider');
-    }
-    ModalProvider.prototype.openModal = function () {
-        this.modalCtrl.create().present();
-    };
-    return ModalProvider;
-}());
-ModalProvider = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Injectable */])(),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* ModalController */]) === "function" && _a || Object])
-], ModalProvider);
-
-var _a;
-//# sourceMappingURL=modal.js.map
 
 /***/ }),
 
