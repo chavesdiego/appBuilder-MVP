@@ -26,7 +26,7 @@
         <li class="menu__item"> Kids </li>
         <li class="menu__item"> Babies </li>
     </ul>
-    
+
     <ion-slides autoplay="5000" class="banners" style="height: 33vh;" *ngIf="categories.length">
         <ion-slide *ngFor="let category of categories">
             <img [src]="'http://45.55.238.48:8000/img/' + category.products[0].imagePath" />

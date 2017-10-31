@@ -1,7 +1,3 @@
-.toast-primary .toast-wrapper {
-  background: #5b2e90;
-}
-
 /* Import font icons linx */
 @font-face {
   font-family: 'linx-icon';
@@ -605,6 +601,7 @@
 /* / Linx Moda */
 .product-name {
   color: #5B2E90;
+  margin: 0 0 5px 0;
 }
 
 .ion-ios-add:before {
@@ -23447,7 +23444,7 @@ ion-toast {
   z-index: 10;
   display: block;
   max-width: 700px;
-  background: #5b2e90;
+  background: rgba(0, 0, 0, 0.9);
 }
 
 .toast-ios .toast-wrapper.toast-top {
@@ -23481,7 +23478,7 @@ ion-toast {
   display: block;
   width: 100%;
   max-width: 700px;
-  background: #5b2e90;
+  background: #333;
 }
 
 .toast-md .toast-wrapper.toast-top {
@@ -23515,7 +23512,7 @@ ion-toast {
   z-index: 10;
   display: block;
   max-width: 700px;
-  background: #5b2e90;
+  background: black;
 }
 
 .toast-wp .toast-wrapper.toast-top {
@@ -33592,6 +33589,7 @@ page-view-product .product-datails [class*="product-sku__color"],
 page-view-product .product-datails [class*="product-sku__size"] {
   border: 3px solid transparent;
   margin-right: .5em;
+  margin-bottom: .5em;
   position: relative;
 }
 
@@ -33617,7 +33615,6 @@ page-view-product .product-datails .product-sku__size {
   line-height: 40px;
   text-align: center;
   background: #bbb;
-  margin-bottom: .5em;
 }
 
 page-view-product .product-datails [class*="product-sku__color--active"],
@@ -33634,6 +33631,10 @@ page-view-product .product-datails [class*="product-sku__color--active"]:before 
   text-align: center;
   position: absolute;
   left: 25%;
+}
+
+page-view-product .product-datails .rating {
+  font-size: 1.5em;
 }
 
 page-view-product ion-footer {

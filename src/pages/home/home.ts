@@ -1,9 +1,9 @@
-import { Component, ViewChild  } from '@angular/core'
-import { IonicPage, NavController, NavParams, ModalController, Slides  } from 'ionic-angular'
+import { Component, ViewChild } from '@angular/core'
+import { IonicPage, NavController, NavParams, ModalController, Slides } from 'ionic-angular'
 import { ProductProvider } from '../../providers/product/product'
 
 import { ViewProductPage } from '../view-product/view-product'
-import {CartPage} from '../cart/cart'
+import { CartPage } from '../cart/cart'
 
 @IonicPage()
 
@@ -23,7 +23,7 @@ export class HomePage {
   }
 
   loadProducts() {
-    
+
     this.productService.load()
       .then(this.splitByCategory.bind(this))
   }
@@ -38,28 +38,28 @@ export class HomePage {
   }
 
   splitByCategory(products) {
-    
+
     const categories = products.map(product => product.categoryId)
 
     const categoriesId = new Set(categories)
 
-    Array.from(categoriesId).map(id => {  
-     
+    Array.from(categoriesId).map(id => {
+
       this.productService.category(id)
         .then(products => {
           this.createCategorySlider(id, products)
         })
-    }) 
+    })
   }
 
-  selectProduct({target}, id) {
+  selectProduct({ target }, id) {
 
-    if(this.selected)
+    if (this.selected)
       document.querySelector('.swiper-slide--selected')
         .classList.remove('swiper-slide--selected')
 
     target.classList.add('swiper-slide--selected')
-    
+
     console.log(this.slides)
 
     this.slides.stopAutoplay()
@@ -75,12 +75,12 @@ export class HomePage {
 
     // this.navCtrl.setRoot(CartPage)
     this.modalCtrl.create(CartPage).present()
-    
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Home');
-    
+
     this.loadProducts()
   }
 
