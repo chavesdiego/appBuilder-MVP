@@ -12,14 +12,3 @@ $colors: (
 
 // Overriding Ionic Sass Variables
 $toolbar-background:         #5b2e90 !default;
-
-// Toast
-$toast-ios-background: $toolbar-background;
-$toast-md-background: $toolbar-background;
-$toast-wp-background: $toolbar-background;
-
-
-
-.toast-primary {
-    .toast-wrapper { background: #5b2e90; }
-}
