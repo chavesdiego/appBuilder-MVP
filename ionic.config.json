@@ -1,6 +1,6 @@
 {
   "name": "MVP",
-  "app_id": "",
+  "app_id": "e3c0b591",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
