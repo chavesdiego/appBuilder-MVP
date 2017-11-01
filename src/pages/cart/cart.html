@@ -16,30 +16,24 @@
 </ion-header>
 
 
-<ion-content padding>
-
-    <!-- <dl>
-        <dt></dt>
-        <dd>
-            {{items.length}}
-        </dd>
-    </dl> -->
-
+<ion-content padding >
+  <div *ngIf="!items.loading">
     <ion-item>
         <ion-grid>
             <ion-row>
-                <ion-col col-6>
-                    <h1 class="product-name"> Cesta :</h1>
-                </ion-col>
-                <ion-col col-6>
-                    {{ items.length }}
+
+                <ion-col col-12 class="cart-resume">
+                  <strong>{{ items.list.length }}</strong>
+                  <span *ngIf="items.list.length > 1 || items.list.length < 1">items</span>
+                  <span *ngIf="items.list.length === 1">item</span>
+                  <strong>: {{ total | currency:'BRL':'R$' }}</strong>
                 </ion-col>
 
             </ion-row>
         </ion-grid>
     </ion-item>
     <ion-list>
-        <ion-item-sliding *ngFor="let item of items">
+        <ion-item-sliding *ngFor="let item of items.list">
 
             <ion-item no-lines>
                 <ion-thumbnail item-start>
@@ -59,6 +53,11 @@
 
     <button ion-button full color="secondary" (click)="cleanCart(product)" *ngIf="items.length"> Limpar Carrinho </button>
     <button ion-button full color="primary" (click)="goToHomePage()"> Finalizar Compra </button>
+  </div>
+
+  <div *ngIf="items.loading" class="loading">
+      <ion-spinner name="crescent"></ion-spinner>
+  </div>
 
 
 </ion-content>
