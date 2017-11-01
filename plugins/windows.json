@@ -1,0 +1,30 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "MVP"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "MVP"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "MVP"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "MVP"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "MVP"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "MVP"
+        }
+    },
+    "dependent_plugins": {}
+}
