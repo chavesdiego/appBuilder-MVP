@@ -5,6 +5,7 @@ import { ProductProvider } from '../../providers/product/product'
 import { ViewProductPage } from '../view-product/view-product'
 import { ProductPreviewPage } from '../product-preview/product-preview'
 import { CartPage } from '../cart/cart'
+import { CartProvider } from '../../providers/cart/cart';
 
 @IonicPage()
 
@@ -19,8 +20,13 @@ export class HomePage {
   public products: any;
   public categories: any = [];
   public selected: any;
+  public cart = this.cartService.getItems();
+  public items: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private productService: ProductProvider, public modalCtrl: ModalController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+     private productService: ProductProvider, public modalCtrl: ModalController, private cartService: CartProvider) {
+
+      // console.log(this.cart)
   }
 
   loadProducts() {
@@ -100,10 +106,6 @@ export class HomePage {
     console.log('ionViewDidLoad Home');
 
     this.loadProducts()
-  }
-
-  ionViewWillLeave() {
-    console.log("Looks like I'm about to leave :(");
   }
 
 }

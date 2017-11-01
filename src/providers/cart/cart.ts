@@ -20,8 +20,7 @@ export class CartProvider {
   // }
 
   getItems(): Observable<any[]> {
-    return this.http.get(`${apiUrl}/carts`)
-      .map(response => response.json())
+    return this.http.get(`${apiUrl}/carts`).map(response => response.json())
   }
 
   addItem(item) {

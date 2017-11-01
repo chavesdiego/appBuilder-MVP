@@ -1,18 +1,18 @@
 <ion-header>
     <ion-toolbar color="light">
 
-        <!-- <ion-buttons start>
+        <ion-buttons start>
             <button ion-button icon-only color="primary">
                 <ion-icon name="menu"></ion-icon>
             </button>
-        </ion-buttons> -->
+        </ion-buttons>
 
         <ion-title>Linx eShop</ion-title>
 
         <ion-buttons end>
             <button ion-button icon-only color="primary" (click)="goToCartPage()">
                 <ion-icon class="lx lx-basket"></ion-icon>
-                <ion-badge id="notifications-badge" color="danger">5</ion-badge>
+                <ion-badge id="notifications-badge" color="danger">{{ items }}</ion-badge>
             </button>
         </ion-buttons>
 
@@ -20,12 +20,11 @@
 </ion-header>
 
 <ion-content>
-    <ul class="menu">
-        <li class="menu__item"> Women </li>
-        <li class="menu__item"> Man </li>
-        <li class="menu__item"> Kids </li>
-        <li class="menu__item"> Babies </li>
-    </ul>
+    <!-- <ul class="menu">
+        <li class="menu__item"> Acessórios </li>
+        <li class="menu__item"> Camisetas </li>
+        <li class="menu__item"> Tênis </li>
+    </ul> -->
 
     <ion-slides autoplay="5000" class="banners" style="height: 33vh;" *ngIf="categories.length">
         <ion-slide *ngFor="let category of categories">

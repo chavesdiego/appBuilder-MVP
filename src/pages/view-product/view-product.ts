@@ -42,10 +42,12 @@ export class ViewProductPage {
       "price": product.price,
       "productId": product._id
     }
+
     this.cartService.addItem(item)
       .then(res => {
         let resObj = Object.assign(res)
         this.notificationsService.presentToast(`O item ${resObj.name} foi adicionado com sucesso.`)
+        this.events.publish('cart:update')
       })
 
   }

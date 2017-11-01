@@ -25,10 +25,9 @@ export class MyApp {
   }
 
   appEvents() {
-    
-    this.events.subscribe('cart:add', (product, amount) => {
-      console.log(`Product ${product._id} added to cart`)
-      console.log(product)
+
+    this.events.subscribe('cart:update', () => {
+      console.log('cartUpdated')
     })
 
   }

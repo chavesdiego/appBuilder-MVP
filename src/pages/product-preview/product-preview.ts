@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController  } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, Events  } from 'ionic-angular';
 import { ProductProvider } from '../../providers/product/product';
 import { CartProvider } from '../../providers/cart/cart';
 import { NotificationsProvider } from '../../providers/notifications/notifications';
@@ -31,7 +31,8 @@ export class ProductPreviewPage {
      private productService: ProductProvider,
      public viewCtrl: ViewController,
      private cartService: CartProvider,
-     private notificationsService: NotificationsProvider
+     private notificationsService: NotificationsProvider,
+     public events: Events
    ) {
 
     this.productId = navParams.get('productId');
@@ -62,6 +63,7 @@ export class ProductPreviewPage {
     }).then(res => {
       let resObj = Object.assign(res)
       this.notificationsService.presentToast(`O item ${resObj.name} foi adicionado com sucesso.`)
+      this.events.publish('cart:update')
       this.dismiss()
     })
   }
