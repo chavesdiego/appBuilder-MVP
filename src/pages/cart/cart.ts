@@ -13,9 +13,14 @@ import { HomePage } from '../home/home'
   templateUrl: 'cart.html',
 })
 export class CartPage {
-  public items: any = [];
+  public items: any = {};
+  public total: number = 0;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private cartService: CartProvider, private notificationsService : NotificationsProvider) {
+    this.items = {
+      loading: true,
+      list: [],
+    }
   }
 
   ionViewDidLoad() {
@@ -24,20 +29,38 @@ export class CartPage {
 
   ngOnInit() {
     return this.cartService.getItems()
-      .subscribe(item => this.items = item)
+      .subscribe(item => {
+        this.items = {
+          list: item,
+          loading: false
+        }
+
+        this.total = this.items.list.reduce((acc, curr) => {
+           return acc += curr.price
+         }, 0)
+      })
   }
 
   removeItem(item) {
     this.cartService.deleteItem(item._id)
-      .then(this.items.splice(item, 1))
-      this.notificationsService.presentToast(`O item foi removido com sucesso.`)
+      .then(() => {
+        this.items.list = this.items.list.filter(i => i._id !== item._id)
+        this.total -= item.price;
+      })
 
+    this.notificationsService.presentToast(`O item foi removido com sucesso.`)
   }
 
   cleanCart() {
-    this.items.map(item => this.cartService.deleteItem(item._id))
-    this.items = []
+    this.items.list.map(item => this.cartService.deleteItem(item._id))
+
+    this.items = {
+      list: [],
+      loading: false
+    }
+
     this.notificationsService.presentToast(`Carrinho limpo.`)
+    this.total = 0;
   }
 
   goToHomePage() {

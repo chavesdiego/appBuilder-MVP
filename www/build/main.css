@@ -33483,6 +33483,25 @@ ion-navbar.toolbar {
   display: inline-block;
 }
 
+modal-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+@media only screen and (min-height: 0px) and (min-width: 0px) {
+  .modal-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  ion-modal ion-backdrop {
+    visibility: visible;
+  }
+}
+
 page-home .scroll-content, page-home .fixed-content {
   margin-bottom: 0 !important;
 }
@@ -33544,7 +33563,7 @@ page-home ion-footer.visible {
 
 .menu .menu__item {
   float: left;
-  font-size: 1.5em;
+  font-size: 1.25em;
   color: #333;
   text-transform: capitalize;
   margin: 0 .6em;
@@ -33567,6 +33586,111 @@ page-login .separator {
   text-transform: uppercase;
 }
 
+page-product-preview .scroll-content {
+  overflow: hidden;
+}
+
+page-product-preview .content {
+  width: 90vw;
+  height: 70vh;
+  left: 5vw;
+  top: 15vh;
+  z-index: 5;
+}
+
+page-product-preview .product-name {
+  font-size: 1.15em;
+}
+
+page-product-preview h4 {
+  color: #5b2e90;
+  font-weight: 300;
+  font-size: 1.15em;
+  margin-bottom: 0;
+}
+
+page-product-preview .backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 2;
+}
+
+page-product-preview [offset-3] {
+  margin-left: 30.333333%;
+}
+
+page-product-preview .product-price {
+  color: #5b2e90;
+}
+
+page-product-preview .product-price strong {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+page-product-preview .product-item, page-product-preview .product-details [class*="product-sku__color"], page-product-preview .product-details [class*="product-sku__size"], page-product-preview page-view-product .product-datails [class*="product-sku__color"], page-view-product .product-datails page-product-preview [class*="product-sku__color"], page-product-preview
+page-view-product .product-datails [class*="product-sku__size"],
+page-view-product .product-datails page-product-preview [class*="product-sku__size"] {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+}
+
+page-product-preview .product-details [class*="product-sku__color"],
+page-product-preview .product-details [class*="product-sku__size"] {
+  border: 3px solid transparent;
+  margin-right: .5em;
+  margin-bottom: .5em;
+  position: relative;
+}
+
+page-product-preview .product-details [class*="__red"] {
+  background: red;
+}
+
+page-product-preview .product-details [class*="__green"] {
+  background: green;
+}
+
+page-product-preview .product-details [class*="__blue"] {
+  background: blue;
+}
+
+page-product-preview .product-details [class*="__black"] {
+  background: black;
+}
+
+page-product-preview .product-details .product-sku__size {
+  color: #666;
+  font-weight: 400;
+  line-height: 40px;
+  text-align: center;
+  background: #bbb;
+}
+
+page-product-preview .product-details [class*="product-sku__color--active"],
+page-product-preview .product-details [class*="product-sku__size--active"] {
+  border: 3px solid orange;
+}
+
+page-product-preview .product-details [class*="product-sku__color--active"]:before {
+  content: "\f3ff";
+  color: #fff;
+  font-family: "Ionicons";
+  font-size: 300%;
+  line-height: 35px;
+  text-align: center;
+  position: absolute;
+  left: 25%;
+}
+
+page-product-preview .product-details .rating {
+  font-size: 1.5em;
+}
+
 page-view-product .loading {
   position: fixed;
   width: 100vw;
@@ -33579,7 +33703,9 @@ page-view-product .loading {
   background: #fff;
 }
 
-page-view-product .product-item, page-view-product .product-datails [class*="product-sku__color"], page-view-product .product-datails [class*="product-sku__size"] {
+page-view-product .product-item, page-view-product page-product-preview .product-details [class*="product-sku__color"], page-product-preview .product-details page-view-product [class*="product-sku__color"], page-view-product
+page-product-preview .product-details [class*="product-sku__size"],
+page-product-preview .product-details page-view-product [class*="product-sku__size"], page-view-product .product-datails [class*="product-sku__color"], page-view-product .product-datails [class*="product-sku__size"] {
   display: inline-block;
   height: 40px;
   width: 40px;
