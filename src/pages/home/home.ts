@@ -20,13 +20,11 @@ export class HomePage {
   public products: any;
   public categories: any = [];
   public selected: any;
-  public cart = this.cartService.getItems();
   public items: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
      private productService: ProductProvider, public modalCtrl: ModalController, private cartService: CartProvider) {
 
-      // console.log(this.cart)
   }
 
   loadProducts() {

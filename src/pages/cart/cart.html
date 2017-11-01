@@ -32,7 +32,7 @@
                     <h1 class="product-name"> Cesta :</h1>
                 </ion-col>
                 <ion-col col-6>
-                    teste2
+                    {{ items.length }}
                 </ion-col>
 
             </ion-row>
@@ -57,7 +57,7 @@
         </ion-item-sliding>
     </ion-list>
 
-    <button ion-button full color="secondary" (click)="cleanCart(product)"> Limpar Carrinho </button>
+    <button ion-button full color="secondary" (click)="cleanCart(product)" *ngIf="items.length"> Limpar Carrinho </button>
     <button ion-button full color="primary" (click)="goToHomePage()"> Finalizar Compra </button>
 
 
