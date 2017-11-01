@@ -57,7 +57,7 @@ export class HomePage {
     })
   }
 
-  selectProduct({ target }, id) {
+  selectProduct({ target, tapCount }, id) {
 
     if (this.selected)
       document.querySelector('.swiper-slide--selected')
@@ -65,7 +65,6 @@ export class HomePage {
 
     target.classList.add('swiper-slide--selected')
 
-    // this.slides.stopAutoplay()
     this.selected = id;
   }
 
@@ -87,6 +86,8 @@ export class HomePage {
   }
 
   productPreview({ target }, id) {
+    this.clearSelection()
+
     target.classList.add('preview')
 
     setTimeout(() => {
@@ -99,8 +100,8 @@ export class HomePage {
 
   goToCartPage() {
 
-    // this.navCtrl.setRoot(CartPage)
-    this.modalCtrl.create(CartPage).present()
+    this.navCtrl.push(CartPage)
+    // this.modalCtrl.create(CartPage).present()
 
   }
 
@@ -108,6 +109,11 @@ export class HomePage {
     console.log('ionViewDidLoad Home');
 
     this.loadProducts()
+  }
+
+  ionViewWillLeave() {
+
+    this.clearSelection();
   }
 
 }
