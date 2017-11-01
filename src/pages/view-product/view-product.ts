@@ -83,7 +83,7 @@ export class ViewProductPage {
     // }
   }
 
-    selectColor(index) {
+  selectColor(index) {
     this.selectedColor = index
   }
 

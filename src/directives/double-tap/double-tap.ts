@@ -19,20 +19,23 @@ export class DoubleTapDirective  implements OnInit, OnDestroy {
   @Output() doubleTap: EventEmitter<any>= new EventEmitter();
 
   constructor(el: ElementRef) {
+
     this.el = el.nativeElement;
   }
 
   ngOnInit() {
+
     this.pressGesture = new Gesture(this.el, {
     recognizers: [
       [Hammer.Tap, {taps: 2}]]
     })
 
-      this.pressGesture.listen()
-      this.pressGesture.on('tap', e => this.doubleTap.emit(e) )
+    this.pressGesture.listen()
+    this.pressGesture.on('tap', e => this.doubleTap.emit(e) )
   }
 
   ngOnDestroy() {
+
     this.pressGesture.destroy();
   }
 

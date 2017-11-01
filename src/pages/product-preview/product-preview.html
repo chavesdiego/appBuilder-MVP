@@ -7,17 +7,46 @@
 
 <ion-content padding>
 
-  <ion-grid *ngIf="product">
-    <ion-row>
-      {{product.name}}
-
-    </ion-row>
+  <ion-grid *ngIf="product" class="product-details">
 
     <ion-row>
-      <button (click)="dismiss()" ion-button col-4>Cancel</button>
-      <button ion-button col-4 offset-3>Confirm</button>
+      <ion-col col-5>
+          <img [src]="'http://45.55.238.48:8000/img/' + product.imagePath" />
+      </ion-col>
+      <ion-col col-7>
+        <ion-row>
+          <h3 class="product-name">
+            <strong> {{product.name}} </strong>
+          </h3>
+          <p class="product-price">
+            <strong>R$ {{product.price}}</strong>
+          </p>
+        </ion-row>
+      </ion-col>
     </ion-row>
+
+    <h4>Tamanho</h4>
+    <ion-row >
+      <span *ngFor="let size of product.sizes; let i = index" class="product-sku__size" [ngClass]="{'product-sku__size--active' : selectedSize === i }" (click)="selectSize(i)"> {{size}} </span>
+    </ion-row>
+
+    <h4>Cor</h4>
+    <ion-row >
+      <span *ngFor="let color of colors" class="product-sku__color__{{color}}" [ngClass]="{'product-sku__color--active' : selectedColor === color}" (click)="selectColor(color)"></span>
+    </ion-row>
+
   </ion-grid>
+
+  <ion-footer>
+    <ion-grid>
+      <ion-row>
+        <button (click)="dismiss()" ion-button col-4 color="secondary">Cancelar</button>
+        <button (click)="addToCart(product)" ion-button col-4 offset-3>Confirmar</button>
+      </ion-row>
+    </ion-grid>
+  </ion-footer>
+
+  <!-- <ion-spinner name="bubbles" *ngIf="!product"></ion-spinner> -->
 
 </ion-content>
 

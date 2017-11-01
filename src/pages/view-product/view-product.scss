@@ -1,5 +1,5 @@
 page-view-product {
-    
+
     .loading {
         position: fixed;
         width: 100vw;
@@ -32,7 +32,7 @@ page-view-product {
             position: relative;
         }
 
-        // Element 
+        // Element
         [class*="__red"] { background: red; }
         [class*="__green"] { background: green; }
         [class*="__blue"] { background: blue; }
@@ -54,7 +54,7 @@ page-view-product {
 
         [class*="product-sku__color--active"]:before {
             content: "\f3ff";
-            
+
             color: #fff;
             font-family: "Ionicons";
             font-size: 300%;
