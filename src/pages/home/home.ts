@@ -65,13 +65,20 @@ export class HomePage {
     this.selected = id;
   }
 
+  clearSelection() {
+    if (!this.selected) return
+
+    document.querySelector('.swiper-slide--selected').classList.remove('swiper-slide--selected')
+    this.selected = '';
+  }
+
   viewProduct() {
 
     this.modalCtrl.create(ViewProductPage, { productId: this.selected }).present()
+    this.clearSelection()
   }
 
   productPreview({ target }, id) {
-
     target.classList.add('preview')
 
     setTimeout(() => {
@@ -93,6 +100,10 @@ export class HomePage {
     console.log('ionViewDidLoad Home');
 
     this.loadProducts()
+  }
+
+  ionViewWillLeave() {
+    console.log("Looks like I'm about to leave :(");
   }
 
 }

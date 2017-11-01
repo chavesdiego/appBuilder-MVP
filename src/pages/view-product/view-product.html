@@ -1,5 +1,11 @@
 <ion-header color="light">
-    <ion-navbar color="light"></ion-navbar>
+    <ion-toolbar color="light">
+        <ion-buttons left>
+            <ion-navbar color="light"></ion-navbar>
+        </ion-buttons>
+
+        <ion-title>Linx Moda Shop</ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
@@ -18,6 +24,11 @@
             <ion-row>
                 <ion-col col-12>
                     <img [src]="'http://45.55.238.48:8000/img/' + product.imagePath" />
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col col-8>
+                    <p class="product-sku product-name"> Preço: <strong> {{product.price | currency:'BRL':true}} </strong> </p>
                 </ion-col>
             </ion-row>
             <ion-row>

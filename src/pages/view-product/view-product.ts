@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, AlertController, Events } from 'ionic-angular';
+import { App, ViewController, IonicPage, NavController, NavParams, ModalController, AlertController, Events } from 'ionic-angular';
 import { ProductProvider } from '../../providers/product/product';
 import { CartProvider } from '../../providers/cart/cart';
 import { NotificationsProvider } from '../../providers/notifications/notifications';
 import { ModalNavigatePage } from '../modal-navigate/modal-navigate';
+import { CartPage } from '../cart/cart'
 
 /**
  * Generated class for the ViewProductPage page.
@@ -23,10 +24,13 @@ export class ViewProductPage {
   public productId: any;
   public selectedSize: any;
   public selectedColor: any;
+  public colors = ['green', 'red', 'blue', 'black'];
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
     private productService: ProductProvider, private modal : ModalController, private cartService: CartProvider,
-    public events: Events, private notificationsService: NotificationsProvider ,public alertCtrl: AlertController) {
+    public events: Events, private notificationsService: NotificationsProvider ,public alertCtrl: AlertController,
+    public modalCtrl: ModalController, public viewCtrl: ViewController, public appCtrl: App) {
+
     this.productId = navParams.get('productId');
   }
 
@@ -54,14 +58,11 @@ export class ViewProductPage {
             {
               text: 'Não',
               handler: () => {
-                console.log('Disagree clicked');
               }
             },
             {
               text: 'Sim',
-              handler: () => {
-                console.log('Agree clicked');
-              }
+              handler: () => this.goToCartPage()
             }
           ]
         });
@@ -69,25 +70,20 @@ export class ViewProductPage {
   }
 
   selectSize(index) {
+
     this.selectedSize = index
-    //   if(this.selected)
-    //     document.querySelector('.swiper-slide--selected')
-    //       .classList.remove('swiper-slide--selected')
-
-    //   target.classList.add('swiper-slide--selected')
-
-    //   console.log(this.slides)
-
-    //   this.slides.stopAutoplay()
-    //   this.selected = id;
-    // }
   }
 
   selectColor(index) {
+
     this.selectedColor = index
   }
 
-  colors = ['green', 'red', 'blue', 'black']
+  goToCartPage() {
+
+    this.viewCtrl.dismiss();
+    this.appCtrl.getRootNav().push(CartPage);
+  }
 
   ionViewDidLoad() {
 
