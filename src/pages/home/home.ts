@@ -76,6 +76,10 @@ export class HomePage {
     this.selected = '';
   }
 
+  openProduct(id) {
+    this.modalCtrl.create(ViewProductPage, { productId: id }).present()
+  }
+
   viewProduct() {
 
     this.modalCtrl.create(ViewProductPage, { productId: this.selected }).present()

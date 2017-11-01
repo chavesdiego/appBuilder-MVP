@@ -1,7 +1,7 @@
 <ion-header>
     <ion-toolbar color="light">
 
-        <ion-buttons start>
+        <ion-buttons left>
             <button ion-button icon-only color="primary">
                 <ion-icon name="menu"></ion-icon>
             </button>
@@ -27,7 +27,7 @@
     </ul> -->
 
     <ion-slides autoplay="5000" class="banners" style="height: 33vh;" *ngIf="categories.length">
-        <ion-slide *ngFor="let category of categories">
+        <ion-slide *ngFor="let category of categories" (tap)="openProduct(category.products[0]._id)">
             <img [src]="'http://45.55.238.48:8000/img/' + category.products[0].imagePath" />
             <button ion-button color="secondary" class="btn-go"> EU QUERO </button>
         </ion-slide>
